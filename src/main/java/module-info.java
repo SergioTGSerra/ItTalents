@@ -3,8 +3,6 @@ module pt.ipvc.ittalents {
     requires javafx.fxml;
     //Extra
     requires de.jensd.fx.glyphs.fontawesome;
-    requires java.sql;
-    requires org.xerial.sqlitejdbc;
 
 
     opens pt.ipvc.ittalents to javafx.fxml;
