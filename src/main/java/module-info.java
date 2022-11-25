@@ -1,8 +1,6 @@
 module pt.ipvc.ittalents {
     requires javafx.controls;
     requires javafx.fxml;
-    //Extra
-    requires de.jensd.fx.glyphs.fontawesome;
 
 
     opens pt.ipvc.ittalents to javafx.fxml;
