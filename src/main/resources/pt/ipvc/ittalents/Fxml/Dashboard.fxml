@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Controllers.DashboardController">
+   <ImageView fitHeight="184.0" fitWidth="187.0" layoutX="21.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true"/>
+</AnchorPane>
