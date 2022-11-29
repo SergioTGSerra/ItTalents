@@ -1,6 +1,6 @@
 package pt.ipvc.ittalents.Backend;
 
-public enum PersonType {
+public enum AreaType {
     DEVELOPER,
     UXSPECIALISTS,
     PRODUCTMANAGER,
