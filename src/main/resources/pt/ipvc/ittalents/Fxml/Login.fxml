@@ -29,7 +29,7 @@
          <Font size="22.0" />
       </font>
    </Label>
-   <Button fx:id="goToRegisterBtn" layoutX="402.0" layoutY="566.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="32.0" prefWidth="150.0" styleClass="login_button" text="Register">
+   <Button fx:id="goToRegisterBtn" layoutX="427.0" layoutY="566.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="32.0" prefWidth="150.0" styleClass="login_button" text="Register">
       <font>
          <Font name="Droid Sans Mono Slashed" size="17.0" />
       </font>
