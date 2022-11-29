@@ -7,5 +7,6 @@ public class Persons {
     private Date birthDate;
     private String username;
     private String password;
+    private AreaType ITArea;
 
 }
