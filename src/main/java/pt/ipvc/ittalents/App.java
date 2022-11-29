@@ -9,8 +9,4 @@ public class App extends Application {
     public void start(Stage stage) {
         ViewFactory.showRegister();
     }
-
-    public static void main(String[] args) {
-        launch();
-    }
 }
