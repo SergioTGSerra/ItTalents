@@ -7,8 +7,6 @@ public class Skill {
     private String name;
     private String description;
     private AreaType category;
-    
-    private List<Skill> skills = new ArrayList<>();
 
     public Skill(){}
     
