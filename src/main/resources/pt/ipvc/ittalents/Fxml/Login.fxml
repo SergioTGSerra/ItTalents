@@ -12,8 +12,8 @@
    <ImageView fitHeight="58.0" fitWidth="388.0" layoutX="117.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../Images/logo.png" />
    </ImageView>
-   <TextField fx:id="username" layoutX="123.0" layoutY="280.0" prefHeight="41.0" prefWidth="244.0" promptText="Username" />
-   <Button layoutX="123.0" layoutY="450.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="252.0" styleClass="login_button" text="Login">
+   <TextField fx:id="username" layoutX="123.0" layoutY="289.0" prefHeight="41.0" prefWidth="244.0" promptText="Username" />
+   <Button fx:id="doLoginBtn" layoutX="123.0" layoutY="450.0" mnemonicParsing="false" onAction="#doLogin" prefHeight="49.0" prefWidth="252.0" styleClass="login_button" text="Login">
       <font>
          <Font name="Droid Sans Mono Slashed" size="24.0" />
       </font>
@@ -23,15 +23,16 @@
          <Font name="Comfortaa Bold" size="39.0" />
       </font>
    </Label>
-   <PasswordField fx:id="password" layoutX="123.0" layoutY="347.0" prefHeight="41.0" prefWidth="244.0" promptText="Password" />
-   <Label layoutX="123.0" layoutY="566.0" text="Don't have an account yet?" textFill="WHITE">
+   <PasswordField fx:id="password" layoutX="123.0" layoutY="356.0" prefHeight="41.0" prefWidth="244.0" promptText="Password" />
+   <Label layoutX="123.0" layoutY="614.0" text="Don't have an account yet?" textFill="WHITE">
       <font>
          <Font size="22.0" />
       </font>
    </Label>
-   <Button fx:id="goToRegisterBtn" layoutX="427.0" layoutY="566.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="32.0" prefWidth="150.0" styleClass="login_button" text="Register">
+   <Button fx:id="goToRegisterBtn" layoutX="429.0" layoutY="614.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="32.0" prefWidth="150.0" styleClass="login_button" text="Register">
       <font>
          <Font name="Droid Sans Mono Slashed" size="17.0" />
       </font>
    </Button>
+   <Label fx:id="infoLabel" layoutX="123.0" layoutY="255.0" text="Label" textFill="RED" visible="false" />
 </AnchorPane>
