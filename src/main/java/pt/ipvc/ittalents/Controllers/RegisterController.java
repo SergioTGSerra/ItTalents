@@ -27,17 +27,22 @@ public class RegisterController{
         if(itAreaSelector.getValue() == null) throw new RegisterException("iTArea is empty!");
         if(password.getText().isEmpty()) throw new RegisterException("The password is empty!");
 
+        boolean exist = false;
         for (Person p : Data.persons) {
             if (p.getUsername().equals(username.getText()))
-                throw new RegisterException("This username already exists, please choose another one.");
+                exist = true;
         }
 
-        Person person = new Person(username.getText(), password.getText(), AreaType.valueOf((String) itAreaSelector.getValue()));
-        Data.persons.add(person);
-        Data.logedUserId = person.getId();
-        infoLabel.setVisible(true);
-        infoLabel.setTextFill(Color.color(0, 1, 0));
-        infoLabel.setText("User successfully registered!");
+        if(exist)
+            throw new RegisterException("This username already exists, please choose another one.");
+        else{
+            Person person = new Person(username.getText(), password.getText(), AreaType.valueOf((String) itAreaSelector.getValue()));
+            Data.persons.add(person);
+            Data.logedUserId = person.getId();
+            infoLabel.setVisible(true);
+            infoLabel.setTextFill(Color.color(0, 1, 0));
+            infoLabel.setText("User successfully registered!");
+        }
     }
 
     public void submitRegister() {
