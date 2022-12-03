@@ -11,6 +11,9 @@ public class ViewFactory {
     public static void showRegister() {
         createStage("Register");
     }
+    public static void showDashboard() {
+        createStage("Dashboard");
+    }
     public static void closeStage(Stage stage){
         stage.close();
     }
