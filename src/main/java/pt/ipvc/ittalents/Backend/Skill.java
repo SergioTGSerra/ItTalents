@@ -1,9 +1,8 @@
 package pt.ipvc.ittalents.Backend;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
-public class Skill {
+public class Skill implements Serializable {
     private String name;
     private String description;
     private AreaType category;
@@ -20,6 +19,16 @@ public class Skill {
         this.description = description;
         this.category = category;
     }
-    
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public AreaType getCategory() {
+        return category;
+    }
 }
