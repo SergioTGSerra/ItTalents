@@ -1,9 +1,11 @@
 package pt.ipvc.ittalents.Backend;
 
-import pt.ipvc.ittalents.Data;
+import pt.ipvc.ittalents.Models.Persons;
 
-public class Person {
-    private int id;
+import java.io.Serializable;
+
+public class Person implements Serializable {
+    private int id = 1;
     private String username;
     private String password;
     private AreaType ITArea;
@@ -16,7 +18,8 @@ public class Person {
      * @param ITArea    Set It Area Of person
      */
     public Person(String username, String password, AreaType ITArea) {
-        this.id += 1;
+        if(!Persons.data.isEmpty())
+            this.id += Persons.data.get(Persons.data.size() - 1).getId();
         this.username = username;
         this.password = password;
         this.ITArea = ITArea;
