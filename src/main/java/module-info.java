@@ -8,4 +8,5 @@ module pt.ipvc.ittalents {
     exports pt.ipvc.ittalents.Controllers;
     exports pt.ipvc.ittalents.Backend;
     exports pt.ipvc.ittalents.Exceptions;
+    exports pt.ipvc.ittalents.Models;
 }
