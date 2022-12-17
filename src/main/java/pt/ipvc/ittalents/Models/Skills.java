@@ -4,12 +4,17 @@ import pt.ipvc.ittalents.Backend.Person;
 import pt.ipvc.ittalents.Backend.Skill;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Skills {
-    public static Map<Skill, Person> data = new HashMap<>();
-    public static void saveData() throws IOException {
+    public static List<Skill> skills = new ArrayList<>();
+    //Cod da skill para lista
+    public static Map<Integer, List<Person>> data = new HashMap<>();
+
+    /*public static void saveData() throws IOException {
         FileOutputStream fos = new FileOutputStream("/home/tiago/IdeaProjects/ItTalents/src/main/java/pt/ipvc/ittalents/SavedData/skills.data");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(data);
@@ -21,5 +26,5 @@ public class Skills {
         ObjectInputStream ois = new ObjectInputStream(fis);
         data = (Map<Skill, Person>) ois.readObject();
         ois.close();
-    }
+    }*/
 }
