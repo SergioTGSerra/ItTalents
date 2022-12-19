@@ -1,14 +1,22 @@
 package pt.ipvc.ittalents.Backend;
 
-import pt.ipvc.ittalents.Models.Persons;
-
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Person implements Serializable {
-    private int id = 1;
+    private int id;
+
+    private static int numberPersons = 0;
     private String username;
     private String password;
     private AreaType ITArea;
+    private String nome;
+    private String pais;
+    private String email;
+    private double priceHour;
+    private boolean published;
+    private Map<Integer, Integer> skillsExprience = new HashMap<>();
 
     /**
      * Contrutor Persons
@@ -18,11 +26,11 @@ public class Person implements Serializable {
      * @param ITArea    Set It Area Of person
      */
     public Person(String username, String password, AreaType ITArea) {
-        if(!Persons.data.isEmpty())
-            this.id += Persons.data.get(Persons.data.size() - 1).getId();
+        this.id = ++numberPersons;
         this.username = username;
         this.password = password;
         this.ITArea = ITArea;
+        this.published = false;
     }
 
     /**
@@ -56,5 +64,52 @@ public class Person implements Serializable {
 
     public void setITArea(AreaType ITArea) {
         this.ITArea = ITArea;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getPriceHour() {
+        return priceHour;
+    }
+
+    public void setPriceHour(double priceHour) {
+        this.priceHour = priceHour;
+    }
+    public void addSkill(int skill, int yearsExprience){
+        skillsExprience.put(skill, yearsExprience);
+    }
+
+    public Map<Integer, Integer> getSkillsExprience() {
+        return skillsExprience;
     }
 }
