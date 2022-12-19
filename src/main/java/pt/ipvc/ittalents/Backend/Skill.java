@@ -1,15 +1,14 @@
 package pt.ipvc.ittalents.Backend;
 
-import pt.ipvc.ittalents.Models.Persons;
-import pt.ipvc.ittalents.Models.Skills;
-
 import java.io.Serializable;
 
 public class Skill implements Serializable {
-    private int id = 1;
+    private int id;
+    private static int numberSkills = 0;
     private String name;
     private String description;
     private AreaType areaType;
+    private boolean published;
 
     public Skill(){}
     
@@ -19,11 +18,11 @@ public class Skill implements Serializable {
      * @param areaType Skill category in ITArea
      */
     public Skill(String name, String description, AreaType areaType) {
-        if(!Skills.data.isEmpty())
-            this.id += Skills.data.get(Skills.data.size() - 1).getId();
+        this.id = ++numberSkills;
         this.name = name;
         this.description = description;
         this.areaType = areaType;
+        this.published = false;
     }
 
     public int getId() {
@@ -40,5 +39,13 @@ public class Skill implements Serializable {
 
     public AreaType getAreaType() {
         return areaType;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
     }
 }
