@@ -1,28 +1,28 @@
 package pt.ipvc.ittalents.Controllers;
 
-
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
 import pt.ipvc.ittalents.Exceptions.SkillException;
-import pt.ipvc.ittalents.Models.SkillsPersons;
+import pt.ipvc.ittalents.ViewFactory;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 public class DashboardController {
     public Label usernameLabel;
     public Label iTAreaLabel;
     public ComboBox<String> searchSkill;
     public ListView<String> mySkillsList;
+    public TextField yearsExprience;
+    public Label errorMessage;
 
     public void initialize() {
         try{
             Skills.loadData();
-            SkillsPersons.loadData();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -33,15 +33,13 @@ public class DashboardController {
     }
 
     private void setSkillsList(){
-        for (int idSkill : SkillsPersons.data.keySet()){
-            List<Integer> persons = SkillsPersons.data.get(idSkill);
-            for (int idPerson : persons)
-                if(idPerson == Persons.logedPerson.getId())
-                    mySkillsList.getItems().add(getStringName(idSkill));
+        for (int idskill : Persons.logedPerson.getSkillsExprience().keySet()){
+            mySkillsList.getItems().add(getSkillName(idskill));
+            System.out.println(idskill);
         }
     }
 
-    private String getStringName(int skillId){
+    private String getSkillName(int skillId){
         for(Skill s : Skills.data)
             if(s.getId() == skillId)
                 return s.getName();
@@ -55,15 +53,16 @@ public class DashboardController {
     }
 
     private void verifySkill() throws SkillException {
+        if(searchSkill.getValue().isEmpty()) throw new SkillException("The skill name is empty.");
         String skillName = searchSkill.getValue().substring(0,1).toUpperCase() + searchSkill.getValue().substring(1).toLowerCase();
         for (Skill s : Skills.data)
             if(s.getName().equals(skillName)){
                 this.associateSkillPerson(s.getId());
                 return;
             }
-        Skill skill = new Skill(skillName, "Teste", Persons.logedPerson.getITArea());
-        Skills.data.add(skill);
-        this.associateSkillPerson(skill.getId());
+        Skill newSkill = new Skill(skillName, "Teste", Persons.logedPerson.getITArea());
+        Skills.data.add(newSkill);
+        this.associateSkillPerson(newSkill.getId());
         try {
             Skills.saveData();
         }catch (IOException e){
@@ -71,18 +70,23 @@ public class DashboardController {
         }
     }
 
-    private void associateSkillPerson(int idSkill){
-        List<Integer> persons = SkillsPersons.data.get(idSkill);
-        if(persons == null) {
-            persons = new ArrayList<>();
-            persons.add(Persons.logedPerson.getId());
-        }else{
-            persons.add(Persons.logedPerson.getId());
+    private void associateSkillPerson(int idSkill) throws SkillException {
+        if(yearsExprience.getText().isEmpty()) throw new SkillException("The years of exprience is empty.");
+        try{
+            Integer.parseInt(yearsExprience.getText());
+        }catch (NumberFormatException e) {
+            e.printStackTrace();
+            throw new SkillException("The years of exprience must be a number.");
         }
-        SkillsPersons.data.put(idSkill, persons);
-        mySkillsList.getItems().add(getStringName(idSkill));
+        Persons.logedPerson.addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
+        mySkillsList.getItems().add(getSkillName(idSkill));
+        this.updatePersons();
+    }
+
+    private void updatePersons(){
+        Persons.data.set(Persons.data.indexOf(Persons.logedPerson), Persons.logedPerson);
         try {
-            SkillsPersons.saveData();
+            Persons.saveData();
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -91,8 +95,29 @@ public class DashboardController {
     public void addSkillBtn() {
         try {
             this.verifySkill();
+            errorMessage.setVisible(true);
+            errorMessage.setTextFill(Color.color(0, 1, 0));
+            errorMessage.setText("Skill added successfully");
         }catch (SkillException e){
-            e.printStackTrace();
+            errorMessage.setVisible(true);
+            errorMessage.setTextFill(Color.color(1, 0, 0));
+            errorMessage.setText(e.getMessage());
         }
+    }
+
+    public void goToMySettings() {
+        ViewFactory.showMySettings();
+    }
+
+    public void removeSkill() {
+        if(mySkillsList.getSelectionModel().getSelectedItem().isEmpty())
+            return;
+        for(int skillId : Persons.logedPerson.getSkillsExprience().keySet())
+            if(mySkillsList.getSelectionModel().getSelectedItem().equals(getSkillName(skillId))){
+                Persons.logedPerson.getSkillsExprience().remove(skillId);
+                break;
+            }
+        mySkillsList.getItems().remove(mySkillsList.getSelectionModel().getSelectedItem());
+        this.updatePersons();
     }
 }
