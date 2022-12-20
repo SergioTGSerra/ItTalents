@@ -1,55 +1,53 @@
 package pt.ipvc.ittalents.Backend;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Person implements Serializable {
     private int id;
-
     private static int numberPersons = 0;
     private String username;
     private String password;
-    private AreaType ITArea;
-    private String nome;
-    private String pais;
+    private String name;
+    private String country;
     private String email;
-    private double priceHour;
-    private boolean published;
-    private Map<Integer, Integer> skillsExprience = new HashMap<>();
-
+    private PersonType personType;
     /**
      * Contrutor Persons
      *
      * @param username  Set username of person
      * @param password  Set password of person
-     * @param ITArea    Set It Area Of person
      */
-    public Person(String username, String password, AreaType ITArea) {
+    public Person(String username, String password, PersonType personType) {
         this.id = ++numberPersons;
         this.username = username;
         this.password = password;
-        this.ITArea = ITArea;
-        this.published = false;
+        this.personType = personType;
     }
 
-    /**
-     * @return  Return the id of user
-     */
     public int getId() {
         return id;
     }
 
-    /**
-     * @return  Return username of user
-     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static int getNumberPersons() {
+        return numberPersons;
+    }
+
+    public static void setNumberPersons(int numberPersons) {
+        Person.numberPersons = numberPersons;
+    }
+
     public String getUsername() {
         return username;
     }
 
-    /**
-     * @return  Return password of user
-     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -58,36 +56,20 @@ public class Person implements Serializable {
         this.password = password;
     }
 
-    public AreaType getITArea() {
-        return ITArea;
+    public String getName() {
+        return name;
     }
 
-    public void setITArea(AreaType ITArea) {
-        this.ITArea = ITArea;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public boolean isPublished() {
-        return published;
+    public String getCountry() {
+        return country;
     }
 
-    public void setPublished(boolean published) {
-        this.published = published;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getEmail() {
@@ -98,18 +80,11 @@ public class Person implements Serializable {
         this.email = email;
     }
 
-    public double getPriceHour() {
-        return priceHour;
+    public PersonType getPersonType() {
+        return personType;
     }
 
-    public void setPriceHour(double priceHour) {
-        this.priceHour = priceHour;
-    }
-    public void addSkill(int skill, int yearsExprience){
-        skillsExprience.put(skill, yearsExprience);
-    }
-
-    public Map<Integer, Integer> getSkillsExprience() {
-        return skillsExprience;
+    public void setPersonType(PersonType personType) {
+        this.personType = personType;
     }
 }
