@@ -21,4 +21,13 @@ public class Persons {
         data = (List<Person>) ois.readObject();
         ois.close();
     }
+
+    public static void updatePersons(){
+        Persons.data.set(Persons.data.indexOf(Persons.logedPerson), Persons.logedPerson);
+        try {
+            Persons.saveData();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }
