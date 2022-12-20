@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pt.ipvc.ittalents.Backend.AreaType;
 import pt.ipvc.ittalents.Backend.Person;
+import pt.ipvc.ittalents.Backend.PersonType;
+import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Exceptions.RegisterException;
 import pt.ipvc.ittalents.ViewFactory;
@@ -18,42 +20,44 @@ public class RegisterController{
     public PasswordField password;
     public Label infoLabel;
     public ComboBox<String> itAreaSelector;
+    public ComboBox<String> personType;
 
     public void initialize() {
         try {
             Persons.loadData();
         }catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
-
     public void goToLogin(){
         ViewFactory.closeStage((Stage)goToLoginBtn.getScene().getWindow());
         ViewFactory.showLogin();
     }
-
     private void validator() throws RegisterException {
         if(username.getText().isEmpty()) throw new RegisterException("The username is empty");
-        if(!password.getText().equals(confirmPassword.getText())) throw new RegisterException("The passwords must be equals!");
-        if(itAreaSelector.getValue().isEmpty()) throw new RegisterException("iTArea is empty!");
         if(password.getText().isEmpty()) throw new RegisterException("The password is empty!");
+        if(!password.getText().equals(confirmPassword.getText())) throw new RegisterException("The passwords must be equals!");
+        if(personType.getValue() == null) throw new RegisterException("PersonType is empty!");
+        if(itAreaSelector.getValue() == null && personType.getValue().equals("PROFESSIONAL")) throw new RegisterException("iTArea is empty!");
         for (Person p : Persons.data)
             if (p.getUsername().equals(username.getText()))
                 throw new RegisterException("This username already exists, please choose another one.");
     }
-
     private void registerUser() throws RegisterException {
         this.validator();
-        Person person = new Person(username.getText(), password.getText(), AreaType.valueOf(itAreaSelector.getValue()));
+        Person person = null;
+        if (personType.getValue().equals("PROFESSIONAL"))
+            person = new Professional(username.getText(), password.getText(), PersonType.valueOf(personType.getValue()), AreaType.valueOf(itAreaSelector.getValue()));
+        else if (personType.getValue().equals("CLIENT"))
+            person = new Person(username.getText(), password.getText(), PersonType.valueOf(personType.getValue()));
         Persons.data.add(person);
         Persons.logedPerson = person;
         try{
             Persons.saveData();
         }catch (IOException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
-
     public void submitRegister() {
         try {
             this.registerUser();
@@ -65,5 +69,11 @@ public class RegisterController{
             infoLabel.setTextFill(Color.color(1, 0, 0));
             infoLabel.setText(e.getMessage());
         }
+    }
+    public void switchTypePerson() {
+        if (personType.getValue().equals("PROFESSIONAL"))
+            itAreaSelector.setVisible(true);
+        if (personType.getValue().equals("CLIENT"))
+            itAreaSelector.setVisible(false);
     }
 }
