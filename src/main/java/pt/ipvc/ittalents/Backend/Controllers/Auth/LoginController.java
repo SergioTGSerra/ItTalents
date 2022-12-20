@@ -1,4 +1,4 @@
-package pt.ipvc.ittalents.Backend.Controllers;
+package pt.ipvc.ittalents.Backend.Controllers.Auth;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
