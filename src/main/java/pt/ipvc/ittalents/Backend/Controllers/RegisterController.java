@@ -13,7 +13,7 @@ import pt.ipvc.ittalents.Routes.AuthRoutes;
 
 import java.io.IOException;
 
-public class RegisterController{
+public abstract class RegisterController{
     public TextField username;
     public Button goToLoginBtn;
     public PasswordField confirmPassword;
@@ -51,7 +51,7 @@ public class RegisterController{
         else if (personType.getValue().equals("CLIENT"))
             person = new Person(username.getText(), password.getText(), PersonType.valueOf(personType.getValue()));
         Persons.data.add(person);
-        Persons.logedPerson = person;
+        Persons.loged = person;
         try{
             Persons.saveData();
         }catch (IOException e){

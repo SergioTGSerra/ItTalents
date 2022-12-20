@@ -13,7 +13,7 @@ import pt.ipvc.ittalents.Backend.Exceptions.SkillException;
 import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
 
 import java.io.IOException;
-public class DashboardController {
+public abstract class DashboardController {
     public Label usernameLabel;
     public Label iTAreaLabel;
     public ComboBox<String> searchSkill;
@@ -29,11 +29,11 @@ public class DashboardController {
         }
         this.setSkillsCombo();
         this.setSkillsList();
-        usernameLabel.setText(Persons.logedPerson.getUsername());
-        iTAreaLabel.setText(((Professional)Persons.logedPerson).getiTArea().toString());
+        usernameLabel.setText(Persons.loged.getUsername());
+        iTAreaLabel.setText(((Professional)Persons.loged).getiTArea().toString());
     }
     private void setSkillsList(){
-        for (int idskill : ((Professional)Persons.logedPerson).getSkillsExprience().keySet()){
+        for (int idskill : ((Professional)Persons.loged).getSkillsExprience().keySet()){
             mySkillsList.getItems().add(getSkillName(idskill));
             System.out.println(idskill);
         }
@@ -46,7 +46,7 @@ public class DashboardController {
     }
     private void setSkillsCombo(){
         for (Skill s : Skills.data)
-            if(s.getAreaType().equals(((Professional)Persons.logedPerson).getiTArea()) && s.isPublished())
+            if(s.getAreaType().equals(((Professional)Persons.loged).getiTArea()) && s.isPublished())
                 searchSkill.getItems().add(s.getName());
     }
     private void verifySkill() throws SkillException {
@@ -57,7 +57,7 @@ public class DashboardController {
                 this.associateSkillPerson(s.getId());
                 return;
             }
-        Skill newSkill = new Skill(skillName, "Teste", ((Professional)Persons.logedPerson).getiTArea());
+        Skill newSkill = new Skill(skillName, "Teste", ((Professional)Persons.loged).getiTArea());
         Skills.data.add(newSkill);
         this.associateSkillPerson(newSkill.getId());
         try {
@@ -68,7 +68,7 @@ public class DashboardController {
     }
     private void associateSkillPerson(int idSkill) throws SkillException {
         if(yearsExprience.getText().isEmpty()) throw new SkillException("The years of exprience is empty.");
-        for(int skillIdPerson : ((Professional)Persons.logedPerson).getSkillsExprience().keySet())
+        for(int skillIdPerson : ((Professional)Persons.loged).getSkillsExprience().keySet())
             if(skillIdPerson == idSkill)
                 throw new SkillException("This user already has this skill associated.");
         try{
@@ -77,7 +77,7 @@ public class DashboardController {
             e.printStackTrace();
             throw new SkillException("The years of exprience must be a number.");
         }
-        ((Professional)Persons.logedPerson).addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
+        ((Professional)Persons.loged).addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
         mySkillsList.getItems().add(getSkillName(idSkill));
         Persons.updatePersons();
     }
@@ -99,9 +99,9 @@ public class DashboardController {
     public void removeSkill() {
         if(mySkillsList.getSelectionModel().getSelectedItem() == null)
             return;
-        for(int skillId : ((Professional)Persons.logedPerson).getSkillsExprience().keySet())
+        for(int skillId : ((Professional)Persons.loged).getSkillsExprience().keySet())
             if(mySkillsList.getSelectionModel().getSelectedItem().equals(getSkillName(skillId))){
-                ((Professional)Persons.logedPerson).getSkillsExprience().remove(skillId);
+                ((Professional)Persons.loged).getSkillsExprience().remove(skillId);
                 break;
             }
         mySkillsList.getItems().remove(mySkillsList.getSelectionModel().getSelectedItem());

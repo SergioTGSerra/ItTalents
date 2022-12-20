@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import pt.ipvc.ittalents.Backend.Person;
 
-public class Persons {
-    public static Person logedPerson;
+public abstract class Persons {
+    public static Person loged;
     public static List<Person> data = new ArrayList<>();
     public static void saveData() throws IOException {
         FileOutputStream fos = new FileOutputStream("C:\\Users\\sergi\\IdeaProjects\\ItTalents\\src\\main\\java\\pt\\ipvc\\ittalents\\SavedData\\Persons.data");
@@ -23,7 +23,7 @@ public class Persons {
     }
 
     public static void updatePersons(){
-        Persons.data.set(Persons.data.indexOf(Persons.logedPerson), Persons.logedPerson);
+        Persons.data.set(Persons.data.indexOf(Persons.loged), Persons.loged);
         try {
             Persons.saveData();
         }catch (IOException e){

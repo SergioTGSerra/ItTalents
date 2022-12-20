@@ -7,21 +7,24 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pt.ipvc.ittalents.Backend.Person;
+import pt.ipvc.ittalents.Backend.PersonType;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Backend.Exceptions.LoginException;
 import pt.ipvc.ittalents.Routes.AuthRoutes;
+import pt.ipvc.ittalents.Routes.ClientRoutes;
 import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
+import pt.ipvc.ittalents.Routes.ViewFactory;
 
 import java.util.Objects;
 
-public class LoginController {
+public abstract class LoginController {
     public TextField username;
     public PasswordField password;
     public Button goToRegisterBtn;
     public Button doLoginBtn;
     public Label infoLabel;
     public void goToRegister() {
-        AuthRoutes.closeStage((Stage)goToRegisterBtn.getScene().getWindow());
+        ViewFactory.closeStage((Stage)goToRegisterBtn.getScene().getWindow());
         AuthRoutes.showRegister();
     }
     private Person validator() throws LoginException {
@@ -33,9 +36,12 @@ public class LoginController {
         throw new LoginException("User not found!");
     }
     private void doLogin() throws LoginException {
-        Persons.logedPerson = this.validator();
-        AuthRoutes.closeStage((Stage)doLoginBtn.getScene().getWindow());
-        ProfessionalRoutes.showDashboard();
+        Persons.loged = this.validator();
+        ViewFactory.closeStage((Stage)doLoginBtn.getScene().getWindow());
+        if(Persons.loged.getPersonType().equals(PersonType.CLIENT))
+            ClientRoutes.showDashboard();
+        if(Persons.loged.getPersonType().equals(PersonType.PROFESSIONAL))
+            ProfessionalRoutes.showDashboard();
     }
     public void submitLogin() {
         try{

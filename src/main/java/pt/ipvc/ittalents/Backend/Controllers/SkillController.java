@@ -1,4 +1,4 @@
 package pt.ipvc.ittalents.Backend.Controllers;
 
-public class SkillController {
+public abstract class SkillController {
 }

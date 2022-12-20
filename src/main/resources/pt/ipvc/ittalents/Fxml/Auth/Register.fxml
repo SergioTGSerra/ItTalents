@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="login_container" stylesheets="@../Styles/auth.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Controllers.RegisterController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.RegisterController">
    <ImageView fitHeight="694.0" fitWidth="623.0" layoutX="238.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.3900146484375">
-         <Image url="@../Images/login-hero.png" />
+         <Image url="@../../Images/login-hero.png" />
    </ImageView>
    <ImageView fitHeight="58.0" fitWidth="388.0" layoutX="117.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../Images/logo.png" />
+      <Image url="@../../Images/logo.png" />
    </ImageView>
    <TextField fx:id="username" layoutX="123.0" layoutY="262.0" prefHeight="41.0" prefWidth="244.0" promptText="Username" />
-   <Button layoutX="119.0" layoutY="542.0" mnemonicParsing="false" onAction="#submitRegister" prefHeight="49.0" prefWidth="252.0" styleClass="login_button" text="Register">
+   <Button layoutX="119.0" layoutY="542.0" mnemonicParsing="false" onAction="#submitRegister" prefHeight="49.0" prefWidth="252.0" styleClass="buttons" text="Register">
       <font>
          <Font name="Droid Sans Mono Slashed" size="24.0" />
       </font>
@@ -32,7 +32,7 @@
          <Font name="Comfortaa Bold" size="20.0" />
       </font>
    </Label>
-   <Button fx:id="goToLoginBtn" layoutX="415.0" layoutY="629.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="19.0" prefWidth="144.0" styleClass="login_button" text="Login">
+   <Button fx:id="goToLoginBtn" layoutX="415.0" layoutY="629.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="19.0" prefWidth="144.0" styleClass="buttons" text="Login">
       <font>
          <Font name="Droid Sans Mono Slashed" size="16.0" />
       </font>

@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Skills {
+public abstract class Skills {
     public static List<Skill> data = new ArrayList<>();
 
     public static void saveData() throws IOException {

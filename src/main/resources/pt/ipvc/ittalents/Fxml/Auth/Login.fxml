@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.LoginController">
+   <ImageView fitHeight="694.0" fitWidth="623.0" layoutX="234.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.3900146484375">
+         <Image url="@../../Images/login-hero.png" />
+   </ImageView>
+   <ImageView fitHeight="58.0" fitWidth="388.0" layoutX="117.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../Images/logo.png" />
+   </ImageView>
+   <Label layoutX="123.0" layoutY="198.0" text="Login" textFill="WHITE">
+      <font>
+         <Font name="Comfortaa Bold" size="39.0" />
+      </font>
+   </Label>
+   <Label fx:id="infoLabel" layoutX="123.0" layoutY="255.0" text="Label" textFill="RED" visible="false" />
+   <TextField fx:id="username" layoutX="123.0" layoutY="289.0" prefHeight="41.0" prefWidth="244.0" promptText="Username" />
+   <PasswordField fx:id="password" layoutX="123.0" layoutY="356.0" prefHeight="41.0" prefWidth="244.0" promptText="Password" />
+   <Button fx:id="doLoginBtn" layoutX="123.0" layoutY="450.0" mnemonicParsing="false" onAction="#submitLogin" prefHeight="49.0" prefWidth="252.0" styleClass="buttons" text="Login">
+      <font>
+         <Font name="Droid Sans Mono Slashed" size="24.0" />
+      </font>
+   </Button>
+   <Label layoutX="123.0" layoutY="614.0" text="Don't have an account yet?" textFill="WHITE">
+      <font>
+         <Font size="22.0" />
+      </font>
+   </Label>
+   <Button fx:id="goToRegisterBtn" layoutX="429.0" layoutY="614.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="32.0" prefWidth="150.0" styleClass="buttons" text="Register">
+      <font>
+         <Font name="Droid Sans Mono Slashed" size="17.0" />
+      </font>
+   </Button>
+</AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="249.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.MySettingsController">
+   <Label layoutX="17.0" layoutY="197.0" text="Public Profile?" textFill="WHITE" />
+   <ToggleButton fx:id="publicProfileBtn" layoutX="17.0" layoutY="214.0" mnemonicParsing="false" onAction="#switchPublicProfile" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: red;" text="No" />
+   <Label layoutX="17.0" layoutY="14.0" text="Name" textFill="WHITE" />
+   <TextField fx:id="name" layoutX="18.0" layoutY="31.0" />
+   <Label layoutX="19.0" layoutY="68.0" text="E-mail" textFill="WHITE" />
+   <TextField fx:id="email" layoutX="18.0" layoutY="85.0" />
+   <Button layoutX="20.0" layoutY="347.0" mnemonicParsing="false" onAction="#saveData" prefHeight="39.0" prefWidth="212.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Save" />
+   <Label layoutX="19.0" layoutY="126.0" text="Country" textFill="WHITE" />
+   <TextField fx:id="country" layoutX="18.0" layoutY="143.0" />
+   <Label fx:id="priceHourLabel" layoutX="19.0" layoutY="263.0" text="Price Hour" textFill="WHITE" visible="false" />
+   <TextField fx:id="priceHour" layoutX="18.0" layoutY="280.0" visible="false" />
+   <Label fx:id="errorMessage" layoutX="22.0" layoutY="324.0" text="Error Message" textFill="RED" visible="false" />
+</AnchorPane>
