@@ -1,4 +1,4 @@
-package pt.ipvc.ittalents.Exceptions;
+package pt.ipvc.ittalents.Backend.Exceptions;
 public class LoginException extends Exception{
     public LoginException(String mensagem){
         super(mensagem);

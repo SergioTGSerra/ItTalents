@@ -1,4 +1,4 @@
-package pt.ipvc.ittalents.Controllers;
+package pt.ipvc.ittalents.Backend.Controllers;
 
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
@@ -8,8 +8,8 @@ import pt.ipvc.ittalents.Backend.Person;
 import pt.ipvc.ittalents.Backend.PersonType;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Models.Persons;
-import pt.ipvc.ittalents.Exceptions.RegisterException;
-import pt.ipvc.ittalents.ViewFactory;
+import pt.ipvc.ittalents.Backend.Exceptions.RegisterException;
+import pt.ipvc.ittalents.Routes.AuthRoutes;
 
 import java.io.IOException;
 
@@ -30,8 +30,8 @@ public class RegisterController{
         }
     }
     public void goToLogin(){
-        ViewFactory.closeStage((Stage)goToLoginBtn.getScene().getWindow());
-        ViewFactory.showLogin();
+        AuthRoutes.closeStage((Stage)goToLoginBtn.getScene().getWindow());
+        AuthRoutes.showLogin();
     }
     private void validator() throws RegisterException {
         if(username.getText().isEmpty()) throw new RegisterException("The username is empty");

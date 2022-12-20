@@ -1,4 +1,4 @@
-package pt.ipvc.ittalents.Controllers;
+package pt.ipvc.ittalents.Backend.Controllers.Professional;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;

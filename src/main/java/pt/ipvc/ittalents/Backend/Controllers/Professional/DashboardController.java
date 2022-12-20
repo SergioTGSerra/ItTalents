@@ -1,4 +1,4 @@
-package pt.ipvc.ittalents.Controllers;
+package pt.ipvc.ittalents.Backend.Controllers.Professional;
 
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -9,8 +9,8 @@ import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
-import pt.ipvc.ittalents.Exceptions.SkillException;
-import pt.ipvc.ittalents.ViewFactory;
+import pt.ipvc.ittalents.Backend.Exceptions.SkillException;
+import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
 
 import java.io.IOException;
 public class DashboardController {
@@ -94,7 +94,7 @@ public class DashboardController {
         }
     }
     public void goToMySettings() {
-        ViewFactory.showMySettings();
+        ProfessionalRoutes.showMySettings();
     }
     public void removeSkill() {
         if(mySkillsList.getSelectionModel().getSelectedItem() == null)

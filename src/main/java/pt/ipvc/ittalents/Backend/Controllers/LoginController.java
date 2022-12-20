@@ -1,4 +1,4 @@
-package pt.ipvc.ittalents.Controllers;
+package pt.ipvc.ittalents.Backend.Controllers;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -8,8 +8,9 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pt.ipvc.ittalents.Backend.Person;
 import pt.ipvc.ittalents.Models.Persons;
-import pt.ipvc.ittalents.Exceptions.LoginException;
-import pt.ipvc.ittalents.ViewFactory;
+import pt.ipvc.ittalents.Backend.Exceptions.LoginException;
+import pt.ipvc.ittalents.Routes.AuthRoutes;
+import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
 
 import java.util.Objects;
 
@@ -20,8 +21,8 @@ public class LoginController {
     public Button doLoginBtn;
     public Label infoLabel;
     public void goToRegister() {
-        ViewFactory.closeStage((Stage)goToRegisterBtn.getScene().getWindow());
-        ViewFactory.showRegister();
+        AuthRoutes.closeStage((Stage)goToRegisterBtn.getScene().getWindow());
+        AuthRoutes.showRegister();
     }
     private Person validator() throws LoginException {
         if(username.getText().isEmpty()) throw new LoginException("The username is empty");
@@ -33,8 +34,8 @@ public class LoginController {
     }
     private void doLogin() throws LoginException {
         Persons.logedPerson = this.validator();
-        ViewFactory.closeStage((Stage)doLoginBtn.getScene().getWindow());
-        ViewFactory.showDashboard();
+        AuthRoutes.closeStage((Stage)doLoginBtn.getScene().getWindow());
+        ProfessionalRoutes.showDashboard();
     }
     public void submitLogin() {
         try{
