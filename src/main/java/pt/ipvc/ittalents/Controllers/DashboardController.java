@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
@@ -24,34 +25,30 @@ public class DashboardController {
         try{
             Skills.loadData();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         this.setSkillsCombo();
         this.setSkillsList();
         usernameLabel.setText(Persons.logedPerson.getUsername());
-        iTAreaLabel.setText(Persons.logedPerson.getITArea().toString());
+        iTAreaLabel.setText(((Professional)Persons.logedPerson).getiTArea().toString());
     }
-
     private void setSkillsList(){
-        for (int idskill : Persons.logedPerson.getSkillsExprience().keySet()){
+        for (int idskill : ((Professional)Persons.logedPerson).getSkillsExprience().keySet()){
             mySkillsList.getItems().add(getSkillName(idskill));
             System.out.println(idskill);
         }
     }
-
     private String getSkillName(int skillId){
         for(Skill s : Skills.data)
             if(s.getId() == skillId)
                 return s.getName();
         return null;
     }
-
     private void setSkillsCombo(){
         for (Skill s : Skills.data)
-            if(s.getAreaType().equals(Persons.logedPerson.getITArea()))
+            if(s.getAreaType().equals(((Professional)Persons.logedPerson).getiTArea()) && s.isPublished())
                 searchSkill.getItems().add(s.getName());
     }
-
     private void verifySkill() throws SkillException {
         if(searchSkill.getValue().isEmpty()) throw new SkillException("The skill name is empty.");
         String skillName = searchSkill.getValue().substring(0,1).toUpperCase() + searchSkill.getValue().substring(1).toLowerCase();
@@ -60,7 +57,7 @@ public class DashboardController {
                 this.associateSkillPerson(s.getId());
                 return;
             }
-        Skill newSkill = new Skill(skillName, "Teste", Persons.logedPerson.getITArea());
+        Skill newSkill = new Skill(skillName, "Teste", ((Professional)Persons.logedPerson).getiTArea());
         Skills.data.add(newSkill);
         this.associateSkillPerson(newSkill.getId());
         try {
@@ -69,29 +66,21 @@ public class DashboardController {
             e.printStackTrace();
         }
     }
-
     private void associateSkillPerson(int idSkill) throws SkillException {
         if(yearsExprience.getText().isEmpty()) throw new SkillException("The years of exprience is empty.");
+        for(int skillIdPerson : ((Professional)Persons.logedPerson).getSkillsExprience().keySet())
+            if(skillIdPerson == idSkill)
+                throw new SkillException("This user already has this skill associated.");
         try{
             Integer.parseInt(yearsExprience.getText());
         }catch (NumberFormatException e) {
             e.printStackTrace();
             throw new SkillException("The years of exprience must be a number.");
         }
-        Persons.logedPerson.addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
+        ((Professional)Persons.logedPerson).addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
         mySkillsList.getItems().add(getSkillName(idSkill));
-        this.updatePersons();
+        Persons.updatePersons();
     }
-
-    private void updatePersons(){
-        Persons.data.set(Persons.data.indexOf(Persons.logedPerson), Persons.logedPerson);
-        try {
-            Persons.saveData();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
     public void addSkillBtn() {
         try {
             this.verifySkill();
@@ -104,20 +93,18 @@ public class DashboardController {
             errorMessage.setText(e.getMessage());
         }
     }
-
     public void goToMySettings() {
         ViewFactory.showMySettings();
     }
-
     public void removeSkill() {
-        if(mySkillsList.getSelectionModel().getSelectedItem().isEmpty())
+        if(mySkillsList.getSelectionModel().getSelectedItem() == null)
             return;
-        for(int skillId : Persons.logedPerson.getSkillsExprience().keySet())
+        for(int skillId : ((Professional)Persons.logedPerson).getSkillsExprience().keySet())
             if(mySkillsList.getSelectionModel().getSelectedItem().equals(getSkillName(skillId))){
-                Persons.logedPerson.getSkillsExprience().remove(skillId);
+                ((Professional)Persons.logedPerson).getSkillsExprience().remove(skillId);
                 break;
             }
         mySkillsList.getItems().remove(mySkillsList.getSelectionModel().getSelectedItem());
-        this.updatePersons();
+        Persons.updatePersons();
     }
 }
