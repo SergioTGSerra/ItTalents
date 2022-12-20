@@ -20,7 +20,7 @@
          <Font name="Droid Sans Mono Slashed" size="24.0" />
       </font>
    </Button>
-   <Label layoutX="123.0" layoutY="172.0" text="Register" textFill="WHITE">
+   <Label layoutX="123.0" layoutY="172.0" text="Register     as" textFill="WHITE">
       <font>
          <Font name="Comfortaa Bold" size="39.0" />
       </font>
@@ -38,13 +38,21 @@
       </font>
    </Button>
    <Label fx:id="infoLabel" layoutX="123.0" layoutY="227.0" text="ERRO" textFill="RED" visible="false" />
-   <ComboBox fx:id="itAreaSelector" layoutX="123.0" layoutY="448.0" prefHeight="41.0" prefWidth="244.0" promptText="Select ItArea">
+   <ComboBox fx:id="itAreaSelector" layoutX="123.0" layoutY="448.0" prefHeight="41.0" prefWidth="244.0" promptText="Select ItArea" visible="false">
       <items>
          <FXCollections fx:factory="observableArrayList">
             <String fx:value="DEVELOPER" />
             <String fx:value="UXSPECIALISTS" />
             <String fx:value="PRODUCTMANAGER" />
             <String fx:value="PROJECTMANAGER" />
+         </FXCollections>
+      </items>
+   </ComboBox>
+   <ComboBox fx:id="personType" layoutX="365.0" layoutY="180.0" onAction="#switchTypePerson" prefHeight="41.0" prefWidth="244.0" promptText="Select Type">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="CLIENT" />
+            <String fx:value="PROFESSIONAL" />
          </FXCollections>
       </items>
    </ComboBox>
