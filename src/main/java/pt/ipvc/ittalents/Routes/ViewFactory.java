@@ -9,7 +9,7 @@ public abstract class ViewFactory {
         stage.close();
     }
     public static void createStage(String file){
-        FXMLLoader fxmlLoader = new FXMLLoader(AuthRoutes.class.getResource("/pt/ipvc/ittalents/Fxml" + file + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AuthRoutes.class.getResource("/pt/ipvc/ittalents/Fxml/" + file + ".fxml"));
         Scene scene = null;
         try {
             scene = new Scene(fxmlLoader.load());
