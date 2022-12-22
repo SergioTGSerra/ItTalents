@@ -13,7 +13,7 @@ import pt.ipvc.ittalents.Backend.Exceptions.SkillException;
 import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
 
 import java.io.IOException;
-public abstract class DashboardController {
+public class DashboardController {
     public Label usernameLabel;
     public Label iTAreaLabel;
     public ComboBox<String> searchSkill;

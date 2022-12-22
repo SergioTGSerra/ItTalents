@@ -10,10 +10,11 @@ import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Backend.Exceptions.RegisterException;
 import pt.ipvc.ittalents.Routes.AuthRoutes;
+import pt.ipvc.ittalents.Routes.ViewFactory;
 
 import java.io.IOException;
 
-public abstract class RegisterController{
+public class RegisterController{
     public TextField username;
     public Button goToLoginBtn;
     public PasswordField confirmPassword;
@@ -30,7 +31,7 @@ public abstract class RegisterController{
         }
     }
     public void goToLogin(){
-        AuthRoutes.closeStage((Stage)goToLoginBtn.getScene().getWindow());
+        ViewFactory.closeStage((Stage)goToLoginBtn.getScene().getWindow());
         AuthRoutes.showLogin();
     }
     private void validator() throws RegisterException {

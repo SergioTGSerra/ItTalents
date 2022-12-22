@@ -17,7 +17,7 @@ import pt.ipvc.ittalents.Routes.ViewFactory;
 
 import java.util.Objects;
 
-public abstract class LoginController {
+public class LoginController {
     public TextField username;
     public PasswordField password;
     public Button goToRegisterBtn;
