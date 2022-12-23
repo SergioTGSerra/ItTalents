@@ -7,4 +7,10 @@ public abstract class ProfessionalRoutes extends ViewFactory {
     public static void showMySettings() {
         createStage("Professional/MySettings");
     }
+    public static void showAddSkill() {
+        createStage("Professional/AddSkill");
+    }
+    public static void showAddExprience() {
+        createStage("Professional/AddExprience");
+    }
 }
