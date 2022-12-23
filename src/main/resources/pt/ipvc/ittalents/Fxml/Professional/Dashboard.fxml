@@ -15,16 +15,16 @@
          <Font size="24.0" />
       </font>
    </Label>
-   <Button layoutX="471.0" layoutY="514.0" mnemonicParsing="false" onAction="#addSkillBtn" prefHeight="39.0" prefWidth="120.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Adicionar Skill" />
-   <ComboBox fx:id="searchSkill" editable="true" layoutX="162.0" layoutY="514.0" prefHeight="39.0" prefWidth="174.0" />
+   <Button layoutX="181.0" layoutY="521.0" mnemonicParsing="false" onAction="#goToAddSkill" prefHeight="39.0" prefWidth="120.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Adicionar Skill" />
    <Label layoutX="91.0" layoutY="141.0" text="My Skills:" textFill="WHITE" />
    <Label layoutX="91.0" layoutY="53.0" text="Username:" textFill="WHITE" />
    <Label layoutX="399.0" layoutY="53.0" text="ITArea:" textFill="WHITE" />
-   <ListView fx:id="mySkillsList" layoutX="90.0" layoutY="185.0" prefHeight="269.0" prefWidth="566.0" />
-   <Button layoutX="679.0" layoutY="300.0" mnemonicParsing="false" onAction="#removeSkill" prefHeight="39.0" prefWidth="94.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Remove Skill" />
+   <Button layoutX="679.0" layoutY="322.0" mnemonicParsing="false" onAction="#removeSkill" prefHeight="39.0" prefWidth="94.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Remove Skill" />
    <Button layoutX="679.0" layoutY="78.0" mnemonicParsing="false" onAction="#goToMySettings" prefHeight="39.0" prefWidth="94.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="My Settings" />
-   <Label layoutX="162.0" layoutY="487.0" text="Skills" textFill="WHITE" />
-   <TextField fx:id="yearsExprience" layoutX="352.0" layoutY="514.0" prefHeight="39.0" prefWidth="99.0" />
-   <Label layoutX="351.0" layoutY="487.0" text="Years Of Exprience" textFill="WHITE" />
-   <Label fx:id="errorMessage" layoutX="162.0" layoutY="560.0" text="ERROR Message" textFill="RED" visible="false" />
+   <Button layoutX="453.0" layoutY="521.0" mnemonicParsing="false" onAction="#goToAddExprience" prefHeight="39.0" prefWidth="165.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Adicionar expriencia" />
+   <ScrollPane layoutX="26.0" layoutY="181.0" prefHeight="269.0" prefWidth="646.0">
+      <content>
+         <VBox fx:id="skillsLayout" prefHeight="264.0" prefWidth="644.0" />
+      </content>
+   </ScrollPane>
 </AnchorPane>
