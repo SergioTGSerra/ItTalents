@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.AddExpriencelController">
+   <Label layoutX="26.0" layoutY="20.0" text="Add Exprience" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="36.0" />
+      </font>
+   </Label>
+   <ComboBox fx:id="searchSkill" layoutX="29.0" layoutY="143.0" prefHeight="41.0" prefWidth="197.0" promptText="Skill Name" />
+   <Label layoutX="29.0" layoutY="115.0" text="Skill Name:*" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Button layoutX="31.0" layoutY="534.0" mnemonicParsing="false" onAction="#addExprienceBtn" prefHeight="35.0" prefWidth="123.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Add Exprience">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Button>
+   <Label fx:id="errorMessage" layoutX="177.0" layoutY="543.0" prefHeight="17.0" prefWidth="305.0" text="Message" textFill="RED" visible="false" />
+   <Label layoutX="29.0" layoutY="224.0" text="Information of exprience" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="company" layoutX="29.0" layoutY="300.0" prefHeight="41.0" prefWidth="160.0" promptText="Company" />
+   <Label layoutX="29.0" layoutY="271.0" text="Company:" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <DatePicker fx:id="startDate" editable="false" layoutX="353.0" layoutY="300.0" prefHeight="41.0" prefWidth="176.0" promptText="Start Date" />
+   <Label layoutX="353.0" layoutY="271.0" text="Start Date:" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Label layoutX="29.0" layoutY="379.0" text="Still currently work for this company?" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <ToggleButton fx:id="switchEndDateBtn" layoutX="29.0" layoutY="408.0" mnemonicParsing="false" onAction="#switchEndDate" prefHeight="41.0" prefWidth="160.0" style="-fx-background-color: green;" text="Yes" />
+   <DatePicker fx:id="endDate" editable="false" layoutX="353.0" layoutY="408.0" prefHeight="41.0" prefWidth="176.0" promptText="End Date" visible="false" />
+   <Label fx:id="endDateLabel" layoutX="353.0" layoutY="379.0" text="End Date:" textFill="WHITE" visible="false">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+</AnchorPane>
