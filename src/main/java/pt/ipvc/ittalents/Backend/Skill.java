@@ -1,10 +1,11 @@
 package pt.ipvc.ittalents.Backend;
 
+import pt.ipvc.ittalents.Models.Skills;
+
 import java.io.Serializable;
 
 public class Skill implements Serializable {
     private int id;
-    private static int numberSkills = 0;
     private String name;
     private String description;
     private AreaType areaType;
@@ -18,7 +19,7 @@ public class Skill implements Serializable {
      * @param areaType Skill category in ITArea
      */
     public Skill(String name, String description, AreaType areaType) {
-        this.id = ++numberSkills;
+        this.id = Skills.data.size() + 1;
         this.name = name;
         this.description = description;
         this.areaType = areaType;
