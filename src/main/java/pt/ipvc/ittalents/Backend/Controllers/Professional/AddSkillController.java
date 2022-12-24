@@ -16,11 +16,6 @@ public class AddSkillController {
     public TextField yearsExprience;
 
     public void initialize() {
-        try{
-            Skills.loadData();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
         this.setSkillsCombo();
     }
     private void setSkillsCombo(){
@@ -28,39 +23,55 @@ public class AddSkillController {
             if(s.getAreaType().equals(((Professional)Persons.loged).getiTArea()) && s.isPublished())
                 searchSkill.getItems().add(s.getName());
     }
+    private int getIdSkillName(String skill){
+        for(Skill s : Skills.data)
+            if(s.getName().equals(skill))
+                return s.getId();
+        return -1;
+    }
     private void verifySkill() throws SkillException {
         if(searchSkill.getValue().isEmpty()) throw new SkillException("The skill name is empty.");
-        String skillName = searchSkill.getValue().substring(0,1).toUpperCase() + searchSkill.getValue().substring(1).toLowerCase();
-        for (Skill s : Skills.data)
-            if(s.getName().equals(skillName)){
-                this.associateSkillPerson(s.getId());
-                return;
-            }
-        Skill newSkill = new Skill(skillName, "Teste", ((Professional)Persons.loged).getiTArea());
-        Skills.data.add(newSkill);
-        this.associateSkillPerson(newSkill.getId());
-        try {
-            Skills.saveData();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    private void associateSkillPerson(int idSkill) throws SkillException {
         if(yearsExprience.getText().isEmpty()) throw new SkillException("The years of exprience is empty.");
-        for(int skillIdPerson : ((Professional) Persons.loged).getSkills().keySet())
-            if(skillIdPerson == idSkill)
-                throw new SkillException("This user already has this skill associated.");
         try{
             Integer.parseInt(yearsExprience.getText());
         }catch (NumberFormatException e) {
             throw new SkillException("The years of exprience must be a number.");
         }
-        ((Professional)Persons.loged).addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
+        for(int skillIdPerson : ((Professional) Persons.loged).getSkills().keySet())
+            if(skillIdPerson == getIdSkillName(searchSkill.getValue().substring(0,1).toUpperCase() + searchSkill.getValue().substring(1).toLowerCase()))
+                throw new SkillException("This user already has this skill associated.");
+    }
+
+    private void associateSkillPerson() throws SkillException {
+        String skillName = searchSkill.getValue().substring(0,1).toUpperCase() + searchSkill.getValue().substring(1).toLowerCase();
+        boolean exit = false;
+        int idSkill = -1;
+        for (Skill s : Skills.data)
+            if(s.getName().equals(skillName)){
+                exit = true;
+                idSkill = s.getId();
+                break;
+            }
+        if(exit){
+            ((Professional)Persons.loged).addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
+            System.out.println(idSkill);
+        }else {
+            Skill newSkill = new Skill(skillName, "Teste", ((Professional)Persons.loged).getiTArea());
+            Skills.data.add(newSkill);
+            ((Professional)Persons.loged).addSkill(newSkill.getId(), Integer.parseInt(yearsExprience.getText()));
+            System.out.println(newSkill.getId());
+        }
+        try {
+            Skills.saveData();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         Persons.updatePersons();
     }
     public void addSkillBtn() {
         try {
-            this.verifySkill();
+            verifySkill();
+            associateSkillPerson();
             errorMessage.setVisible(true);
             errorMessage.setTextFill(Color.color(0, 1, 0));
             errorMessage.setText("Skill added successfully");
