@@ -4,27 +4,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.DashboardController">
-   <Label fx:id="usernameLabel" layoutX="91.0" layoutY="78.0" prefHeight="39.0" prefWidth="299.0" text="Username" textFill="WHITE">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.DashboardController">
+   <Label fx:id="usernameLabel" layoutX="152.0" layoutY="24.0" prefHeight="39.0" prefWidth="299.0" text="Username" textFill="WHITE">
       <font>
          <Font size="24.0" />
       </font>
    </Label>
-   <Label fx:id="iTAreaLabel" layoutX="400.0" layoutY="78.0" prefHeight="39.0" prefWidth="299.0" text="ItArea" textFill="WHITE">
+   <Label fx:id="iTAreaLabel" layoutX="531.0" layoutY="24.0" prefHeight="39.0" prefWidth="194.0" text="ItArea" textFill="WHITE">
       <font>
          <Font size="24.0" />
       </font>
    </Label>
-   <Button layoutX="181.0" layoutY="521.0" mnemonicParsing="false" onAction="#goToAddSkill" prefHeight="39.0" prefWidth="120.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Adicionar Skill" />
-   <Label layoutX="91.0" layoutY="141.0" text="My Skills:" textFill="WHITE" />
-   <Label layoutX="91.0" layoutY="53.0" text="Username:" textFill="WHITE" />
-   <Label layoutX="399.0" layoutY="53.0" text="ITArea:" textFill="WHITE" />
-   <Button layoutX="679.0" layoutY="322.0" mnemonicParsing="false" onAction="#removeSkill" prefHeight="39.0" prefWidth="94.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Remove Skill" />
-   <Button layoutX="679.0" layoutY="78.0" mnemonicParsing="false" onAction="#goToMySettings" prefHeight="39.0" prefWidth="94.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="My Settings" />
-   <Button layoutX="453.0" layoutY="521.0" mnemonicParsing="false" onAction="#goToAddExprience" prefHeight="39.0" prefWidth="165.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Adicionar expriencia" />
-   <ScrollPane layoutX="26.0" layoutY="181.0" prefHeight="269.0" prefWidth="646.0">
+   <Button layoutX="152.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToAddSkill" prefHeight="39.0" prefWidth="101.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Add Skill" />
+   <Label layoutX="30.0" layoutY="141.0" text="My Skills:" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font></Label>
+   <Label layoutX="30.0" layoutY="26.0" text="Username:" textFill="WHITE">
+      <font>
+         <Font size="24.0" />
+      </font></Label>
+   <Label layoutX="451.0" layoutY="26.0" text="ITArea:" textFill="WHITE">
+      <font>
+         <Font size="24.0" />
+      </font></Label>
+   <Button layoutX="30.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToMySettings" prefHeight="39.0" prefWidth="94.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="My Settings" />
+   <Button layoutX="283.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToAddExprience" prefHeight="39.0" prefWidth="101.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Add Exprience" />
+   <ScrollPane hbarPolicy="NEVER" layoutX="30.0" layoutY="186.0" prefHeight="394.0" prefWidth="746.0" styleClass="background-color">
       <content>
-         <VBox fx:id="skillsLayout" prefHeight="264.0" prefWidth="644.0" />
+         <VBox fx:id="skillsLayout" onMouseEntered="#updateList" prefHeight="392.0" prefWidth="744.0" styleClass="background-color" />
       </content>
    </ScrollPane>
+   <Button layoutX="413.0" layoutY="81.0" mnemonicParsing="false" onAction="#logout" prefHeight="39.0" prefWidth="88.0" styleClass="buttons" text="Logout" />
 </AnchorPane>

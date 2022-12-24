@@ -2,10 +2,16 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="41.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.SkillItemController">
-   <children>
-      <Label fx:id="skillName" layoutX="14.0" layoutY="12.0" text="Label" />
-   </children>
+<AnchorPane prefHeight="89.0" prefWidth="738.0" styleClass="background-color" stylesheets="@../../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.SkillItemController">
+   <Label fx:id="skillName" layoutX="10.0" layoutY="10.0" text="Skill Name" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="skillDesc" layoutX="10.0" layoutY="43.0" text="Skill Description" textFill="WHITE" />
+   <Label fx:id="yearsExprience" layoutX="509.0" layoutY="36.0" text="Years of exprience" textFill="WHITE" />
+   <Button layoutX="622.0" layoutY="30.0" mnemonicParsing="false" styleClass="buttons" stylesheets="@../../../Styles/app.css" text="View Expriences" />
+   <Separator layoutX="4.0" layoutY="81.0" prefHeight="8.0" prefWidth="729.0" />
 </AnchorPane>
