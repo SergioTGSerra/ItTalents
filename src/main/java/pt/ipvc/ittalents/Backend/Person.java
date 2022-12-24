@@ -1,10 +1,11 @@
 package pt.ipvc.ittalents.Backend;
 
+import pt.ipvc.ittalents.Models.Persons;
+
 import java.io.Serializable;
 
 public class Person implements Serializable {
     private int id;
-    private static int numberPersons = 0;
     private String username;
     private String password;
     private String name;
@@ -18,7 +19,7 @@ public class Person implements Serializable {
      * @param password  Set password of person
      */
     public Person(String username, String password, PersonType personType) {
-        this.id = ++numberPersons;
+        this.id = Persons.data.size() + 1;
         this.username = username;
         this.password = password;
         this.personType = personType;
@@ -30,14 +31,6 @@ public class Person implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public static int getNumberPersons() {
-        return numberPersons;
-    }
-
-    public static void setNumberPersons(int numberPersons) {
-        Person.numberPersons = numberPersons;
     }
 
     public String getUsername() {
