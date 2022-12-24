@@ -1,8 +1,9 @@
 package pt.ipvc.ittalents.Backend;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Exprience {
+public class Exprience implements Serializable {
     private String company;
     private LocalDate startDate;
     private LocalDate endDate;

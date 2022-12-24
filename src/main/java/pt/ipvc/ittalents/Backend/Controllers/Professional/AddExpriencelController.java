@@ -1,7 +1,9 @@
 package pt.ipvc.ittalents.Backend.Controllers.Professional;
 
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import pt.ipvc.ittalents.Backend.Exceptions.ExprienceException;
 import pt.ipvc.ittalents.Backend.Exceptions.SkillException;
 import pt.ipvc.ittalents.Backend.Exprience;
@@ -9,6 +11,10 @@ import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
+import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
+import pt.ipvc.ittalents.Routes.ViewFactory;
+
+import java.util.Objects;
 
 public class AddExpriencelController {
     public ComboBox<String> searchSkill;
@@ -18,6 +24,7 @@ public class AddExpriencelController {
     public TextField company;
     public DatePicker startDate;
     public ToggleButton switchEndDateBtn;
+    public AnchorPane anchorPane;
 
     public void initialize() {
         this.setSkillsCombo();
@@ -32,20 +39,11 @@ public class AddExpriencelController {
                 return s.getName();
         return null;
     }
-
-    private int getIdSkillName(String skill){
-        for(Skill s : Skills.data)
-            if(s.getName().equals(skill))
-                return s.getId();
-        return -1;
-    }
-
-    private void addExprience(){
-        Exprience exprience = new Exprience(company.getText(), startDate.getValue(), endDate.getValue(), getIdSkillName(searchSkill.getValue()));
+    private void addExprience() {
+        Exprience exprience = new Exprience(company.getText(), startDate.getValue(), endDate.getValue(), 1);
         ((Professional)Persons.loged).addExprience(exprience);
         Persons.updatePersons();
     }
-
     private void validator() throws SkillException, ExprienceException {
         if(searchSkill.getValue() == null)
             throw new SkillException("The skill name is empty!");
@@ -55,6 +53,12 @@ public class AddExpriencelController {
             throw new ExprienceException("The start date is empty!");
         if(switchEndDateBtn.getText().equals("No") && endDate.getValue() == null)
             throw new ExprienceException("The end date of exprience is empty!");
+        for(Exprience exprience : ((Professional)Persons.loged).getExpriences())
+            if(Objects.equals(getSkillName(exprience.getIdSkill()), searchSkill.getValue())
+                    && exprience.getCompany().equals(company.getText())
+                    && startDate.getValue().equals(exprience.getStartDate()))
+                throw new ExprienceException("This experience is duplicated.");
+
     }
     public void switchEndDate() {
         if(switchEndDateBtn.getText().equals("Yes")){
@@ -81,5 +85,9 @@ public class AddExpriencelController {
             errorMessage.setTextFill(Color.color(1, 0, 0));
             errorMessage.setText(e.getMessage());
         }
+    }
+    public void goToDashboard() {
+        ProfessionalRoutes.showDashboard();
+        ViewFactory.closeStage((Stage)anchorPane.getScene().getWindow());
     }
 }

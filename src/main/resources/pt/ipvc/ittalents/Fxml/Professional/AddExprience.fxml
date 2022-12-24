@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.AddExpriencelController">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.AddExpriencelController">
    <Label layoutX="26.0" layoutY="20.0" text="Add Exprience" textFill="WHITE">
       <font>
          <Font name="System Bold" size="36.0" />
@@ -51,4 +51,9 @@
          <Font size="14.0" />
       </font>
    </Label>
+   <Button layoutX="641.0" layoutY="534.0" mnemonicParsing="false" onAction="#goToDashboard" prefHeight="35.0" prefWidth="123.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Return">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Button>
 </AnchorPane>
