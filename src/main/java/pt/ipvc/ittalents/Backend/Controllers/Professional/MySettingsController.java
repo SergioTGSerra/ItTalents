@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Models.Persons;
 
+import java.io.IOException;
+
 public class MySettingsController {
     public ToggleButton publicProfileBtn;
     public TextField name;
