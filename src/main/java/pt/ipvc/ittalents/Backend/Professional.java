@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Professional extends Person {
-    private AreaType iTArea;
+    private final AreaType iTArea;
     private double priceHour;
     private boolean published;
-    private Map<Integer, Integer> skills = new HashMap<>(); //ID Skill to Year Of Exprience
-    private List<Exprience> expriences = new ArrayList<>(); //Exprience to Id of Skill
+    private final Map<Integer, Integer> skills = new HashMap<>(); //ID Skill to Year Of exprience
+    private final List<Exprience> expriences = new ArrayList<>(); //exprience to id of Skill
 
     public Professional(String username, String password, PersonType personType, AreaType iTArea) {
         super(username, password, personType);
