@@ -1,32 +1,31 @@
 package pt.ipvc.ittalents.Backend.Controllers.Professional;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
+import pt.ipvc.ittalents.Routes.AuthRoutes;
 import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
+import pt.ipvc.ittalents.Routes.ViewFactory;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
-    @FXML
     public Label usernameLabel;
-    @FXML
     public Label iTAreaLabel;
-    @FXML
     public ListView<String> mySkillsList;
-    @FXML
     public VBox skillsLayout;
+    public AnchorPane anchorPane;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,45 +34,15 @@ public class DashboardController implements Initializable {
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
-        for (int idskill : ((Professional)Persons.loged).getSkills().keySet()){
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/pt/ipvc/ittalents/Fxml/Professional/Components/SkillItem.fxml"));
-            try {
-                AnchorPane pane = fxmlLoader.load();
-                SkillItemController sic = fxmlLoader.getController();
-                sic.setData("Teste");
-                skillsLayout.getChildren().add(pane);
-                System.out.println("entrou");
-            }catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-
-        //this.setSkillsList();
+        updateList();
         usernameLabel.setText(Persons.loged.getUsername());
         iTAreaLabel.setText(((Professional)Persons.loged).getiTArea().toString());
-    }
-    private void setSkillsList(){
-        for (int idskill : ((Professional)Persons.loged).getSkills().keySet())
-            mySkillsList.getItems().add(getSkillName(idskill));
     }
     private String getSkillName(int skillId){
         for(Skill s : Skills.data)
             if(s.getId() == skillId)
                 return s.getName();
         return null;
-    }
-    public void removeSkill() {
-        if(mySkillsList.getSelectionModel().getSelectedItem() == null)
-            return;
-        for(int skillId : ((Professional)Persons.loged).getSkills().keySet())
-            if(mySkillsList.getSelectionModel().getSelectedItem().equals(getSkillName(skillId))){
-                ((Professional)Persons.loged).getSkills().remove(skillId);
-                break;
-            }
-        mySkillsList.getItems().remove(mySkillsList.getSelectionModel().getSelectedItem());
-        Persons.updatePersons();
     }
     public void goToAddSkill() {
         ProfessionalRoutes.showAddSkill();
@@ -82,6 +51,30 @@ public class DashboardController implements Initializable {
         ProfessionalRoutes.showMySettings();
     }
     public void goToAddExprience() {
+        ViewFactory.closeStage((Stage)anchorPane.getScene().getWindow());
         ProfessionalRoutes.showAddExprience();
+    }
+    public void logout() {
+        ViewFactory.closeStage((Stage)anchorPane.getScene().getWindow());
+        Persons.loged = null;
+        AuthRoutes.showLogin();
+    }
+    public void updateList(MouseEvent dragEvent) {
+        skillsLayout.getChildren().removeAll(skillsLayout.getChildren());
+        updateList();
+    }
+    private void updateList() {
+        for (int idskill : ((Professional) Persons.loged).getSkills().keySet()){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/pt/ipvc/ittalents/Fxml/Professional/Components/SkillItem.fxml"));
+            try {
+                AnchorPane pane = fxmlLoader.load();
+                SkillItemController sic = fxmlLoader.getController();
+                sic.setData(idskill);
+                skillsLayout.getChildren().add(pane);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 }
