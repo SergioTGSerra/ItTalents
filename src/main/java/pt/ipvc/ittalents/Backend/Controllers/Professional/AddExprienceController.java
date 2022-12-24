@@ -16,7 +16,7 @@ import pt.ipvc.ittalents.Routes.ViewFactory;
 
 import java.util.Objects;
 
-public class AddExpriencelController {
+public class AddExprienceController {
     public ComboBox<String> searchSkill;
     public Label errorMessage;
     public Label endDateLabel;
@@ -39,8 +39,14 @@ public class AddExpriencelController {
                 return s.getName();
         return null;
     }
+    private int getIdSkillName(String skill){
+        for(Skill s : Skills.data)
+            if(s.getName().equals(skill))
+                return s.getId();
+        return -1;
+    }
     private void addExprience() {
-        Exprience exprience = new Exprience(company.getText(), startDate.getValue(), endDate.getValue(), 1);
+        Exprience exprience = new Exprience(company.getText(), startDate.getValue(), endDate.getValue(), getIdSkillName(searchSkill.getValue()));
         ((Professional)Persons.loged).addExprience(exprience);
         Persons.updatePersons();
     }

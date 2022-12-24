@@ -41,7 +41,6 @@ public class AddSkillController {
             if(skillIdPerson == getIdSkillName(searchSkill.getValue().substring(0,1).toUpperCase() + searchSkill.getValue().substring(1).toLowerCase()))
                 throw new SkillException("This user already has this skill associated.");
     }
-
     private void associateSkillPerson() throws SkillException {
         String skillName = searchSkill.getValue().substring(0,1).toUpperCase() + searchSkill.getValue().substring(1).toLowerCase();
         boolean exit = false;

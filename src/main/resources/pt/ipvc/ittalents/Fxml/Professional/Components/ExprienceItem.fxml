@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="89.0" prefWidth="738.0" styleClass="background-color" stylesheets="@../../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.Components.ExprienceItemController">
+   <Label fx:id="companyName" layoutX="20.0" layoutY="14.0" text="Company name" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+   <Label fx:id="startDate" layoutX="83.0" layoutY="46.0" text="Start date" textFill="WHITE" />
+   <Separator layoutX="4.0" layoutY="81.0" prefHeight="8.0" prefWidth="729.0" />
+   <Button layoutX="583.0" layoutY="31.0" mnemonicParsing="false" onAction="#removeExprience" styleClass="buttons" stylesheets="@../../../Styles/app.css" text="Remove Exprience" />
+   <Label fx:id="errorMessage" layoutX="581.0" layoutY="60.0" text="Press again to remove" textFill="RED" visible="false" />
+   <Label fx:id="endDate" layoutX="235.0" layoutY="46.0" text="End Date" textFill="WHITE" />
+   <Label layoutX="20.0" layoutY="46.0" text="Start date:" textFill="WHITE" />
+   <Label layoutX="178.0" layoutY="46.0" text="End Date:" textFill="WHITE" />
+</AnchorPane>
