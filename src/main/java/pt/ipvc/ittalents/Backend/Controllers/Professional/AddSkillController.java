@@ -55,7 +55,7 @@ public class AddSkillController {
             ((Professional)Persons.loged).addSkill(idSkill, Integer.parseInt(yearsExprience.getText()));
             System.out.println(idSkill);
         }else {
-            Skill newSkill = new Skill(skillName, "Teste", ((Professional)Persons.loged).getiTArea());
+            Skill newSkill = new Skill(skillName, null, ((Professional)Persons.loged).getiTArea());
             Skills.data.add(newSkill);
             ((Professional)Persons.loged).addSkill(newSkill.getId(), Integer.parseInt(yearsExprience.getText()));
             System.out.println(newSkill.getId());
