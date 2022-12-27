@@ -2,7 +2,6 @@ package pt.ipvc.ittalents.Backend.Controllers.Professional;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -20,7 +19,6 @@ import java.io.IOException;
 public class DashboardController {
     public Label usernameLabel;
     public Label iTAreaLabel;
-    public ListView<String> mySkillsList;
     public VBox skillsLayout;
     public AnchorPane anchorPane;
 
