@@ -29,7 +29,7 @@ public class ViewExpriencesController {
         return null;
     }
     public void initialize() {
-        title.setText(Persons.loged.getName() + "'s Experiences for Skill " + getSkillName(skillId));
+        title.setText(Persons.loged.getUsername() + "'s Experiences for Skill " + getSkillName(skillId));
         updateList();
     }
     public void goToDashboard() {
