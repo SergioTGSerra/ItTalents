@@ -26,6 +26,17 @@ public class RegisterController{
     public void initialize() {
         try {
             Persons.loadData();
+            boolean exit = false;
+            for(Person p : Persons.data)
+                if(p.getUsername().equals("admin")) {
+                    exit = true;
+                    break;
+                }
+            if(!exit){
+                Person p = new Person("admin", "admin", PersonType.ADMIN);
+                Persons.data.add(p);
+                Persons.saveData();
+            }
         }catch (IOException | ClassNotFoundException e){
             System.out.println(e.getMessage());
         }
