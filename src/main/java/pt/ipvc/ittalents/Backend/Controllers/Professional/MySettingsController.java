@@ -7,8 +7,6 @@ import javafx.scene.paint.Color;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Models.Persons;
 
-import java.io.IOException;
-
 public class MySettingsController {
     public ToggleButton publicProfileBtn;
     public TextField name;
@@ -22,15 +20,7 @@ public class MySettingsController {
         updateAreas();
     }
     public void switchPublicProfile() {
-        ((Professional)Persons.loged).setPublished(!((Professional)Persons.loged).isPublished());
-        updateAreas();
-    }
-    private void updateAreas(){
-        name.setText(Persons.loged.getName());
-        email.setText(Persons.loged.getEmail());
-        country.setText(Persons.loged.getCountry());
-        priceHour.setText(String.valueOf(((Professional)Persons.loged).getPriceHour()));
-        if(((Professional)Persons.loged).isPublished()){
+        if(publicProfileBtn.getText().equals("No")){
             publicProfileBtn.setStyle("-fx-background-color: green");
             publicProfileBtn.setText("Yes");
             priceHour.setVisible(true);
@@ -43,10 +33,24 @@ public class MySettingsController {
             priceHourLabel.setVisible(false);
         }
     }
+    private void updateAreas(){
+        name.setText(Persons.loged.getName());
+        email.setText(Persons.loged.getEmail());
+        country.setText(Persons.loged.getCountry());
+        priceHour.setText(String.valueOf(((Professional)Persons.loged).getPriceHour()));
+        if(((Professional)Persons.loged).isPublished()){
+            publicProfileBtn.setStyle("-fx-background-color: green");
+            publicProfileBtn.setText("Yes");
+            priceHour.setVisible(true);
+            priceHourLabel.setVisible(true);
+
+        }
+    }
     public void saveData() {
         Persons.loged.setName(name.getText());
         Persons.loged.setEmail(email.getText());
         Persons.loged.setCountry(country.getText());
+        ((Professional)Persons.loged).setPublished(!((Professional)Persons.loged).isPublished());
         try {
             ((Professional)Persons.loged).setPriceHour(Double.parseDouble(priceHour.getText()));
             errorMessage.setVisible(true);
