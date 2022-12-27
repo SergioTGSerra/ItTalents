@@ -10,10 +10,7 @@ import pt.ipvc.ittalents.Backend.Person;
 import pt.ipvc.ittalents.Backend.PersonType;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Backend.Exceptions.LoginException;
-import pt.ipvc.ittalents.Routes.AuthRoutes;
-import pt.ipvc.ittalents.Routes.ClientRoutes;
-import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
-import pt.ipvc.ittalents.Routes.ViewFactory;
+import pt.ipvc.ittalents.Routes.*;
 
 import java.util.Objects;
 
@@ -38,10 +35,12 @@ public class LoginController {
     private void doLogin() throws LoginException {
         Persons.loged = this.validator();
         ViewFactory.closeStage((Stage)doLoginBtn.getScene().getWindow());
-        if(Persons.loged.getPersonType().equals(PersonType.CLIENT))
-            ClientRoutes.showDashboard();
         if(Persons.loged.getPersonType().equals(PersonType.PROFESSIONAL))
             ProfessionalRoutes.showDashboard();
+        else if(Persons.loged.getPersonType().equals(PersonType.CLIENT))
+            ClientRoutes.showDashboard();
+        else if(Persons.loged.getPersonType().equals(PersonType.ADMIN))
+            AdminRoutes.showDashboard();
     }
     public void submitLogin() {
         try{
