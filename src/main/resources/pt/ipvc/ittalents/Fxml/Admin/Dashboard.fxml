@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Admin.DashboardController">
+   <Label fx:id="usernameLabel" layoutX="186.0" layoutY="99.0" prefHeight="39.0" prefWidth="299.0" text="Username" textFill="WHITE">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label fx:id="nUsers" layoutX="63.0" layoutY="177.0" text="Number of Users:" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font></Label>
+   <Label layoutX="64.0" layoutY="101.0" text="Username:" textFill="WHITE">
+      <font>
+         <Font size="24.0" />
+      </font></Label>
+   <Button layoutX="64.0" layoutY="242.0" mnemonicParsing="false" onAction="#manageUsers" prefHeight="50.0" prefWidth="299.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Manage Users" />
+   <Button layoutX="681.0" layoutY="530.0" mnemonicParsing="false" onAction="#logout" prefHeight="39.0" prefWidth="88.0" styleClass="buttons" text="Logout" />
+   <Label fx:id="nSkills" layoutX="436.0" layoutY="177.0" text="Number of Skills:" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <Button layoutX="436.0" layoutY="242.0" mnemonicParsing="false" onAction="#manageSkills" prefHeight="50.0" prefWidth="299.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Manage Skills" />
+   <Button layoutX="526.0" layoutY="530.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="112.0" styleClass="buttons" text="System Logs" />
+   <Label layoutX="31.0" layoutY="23.0" text="Admin Dashboard" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+</AnchorPane>
