@@ -18,7 +18,7 @@
       <font>
          <Font size="24.0" />
       </font></Label>
-   <Button layoutX="64.0" layoutY="242.0" mnemonicParsing="false" onAction="#manageUsers" prefHeight="50.0" prefWidth="299.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Manage Users" />
+   <Button layoutX="64.0" layoutY="242.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="50.0" prefWidth="299.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Manage Users" />
    <Button layoutX="681.0" layoutY="530.0" mnemonicParsing="false" onAction="#logout" prefHeight="39.0" prefWidth="88.0" styleClass="buttons" text="Logout" />
    <Label fx:id="nSkills" layoutX="436.0" layoutY="177.0" text="Number of Skills:" textFill="WHITE">
       <font>
