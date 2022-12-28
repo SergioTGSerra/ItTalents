@@ -1,4 +1,4 @@
-package pt.ipvc.ittalents.Backend.Controllers;
+package pt.ipvc.ittalents.Backend.Controllers.Generic;
 
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
@@ -8,6 +8,7 @@ import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
 import pt.ipvc.ittalents.Routes.AdminRoutes;
+import pt.ipvc.ittalents.Routes.ClientRoutes;
 import pt.ipvc.ittalents.Routes.ProfessionalRoutes;
 import pt.ipvc.ittalents.Routes.ViewFactory;
 
@@ -25,7 +26,7 @@ public class SearchTalents {
         if(Persons.loged.getPersonType().equals(PersonType.ADMIN))
             AdminRoutes.showDashboard();
         else if(Persons.loged.getPersonType().equals(PersonType.CLIENT))
-            AdminRoutes.showDashboard();
+            ClientRoutes.showDashboard();
         else if(Persons.loged.getPersonType().equals(PersonType.PROFESSIONAL))
             ProfessionalRoutes.showDashboard();
         ViewFactory.closeStage((Stage)skills.getScene().getWindow());
