@@ -15,5 +15,5 @@
    <Button layoutX="517.0" layoutY="31.0" mnemonicParsing="false" onAction="#viewExpriences" styleClass="buttons" stylesheets="@../../../Styles/app.css" text="View Expriences" />
    <Separator layoutX="4.0" layoutY="81.0" prefHeight="8.0" prefWidth="729.0" />
    <Button layoutX="626.0" layoutY="31.0" mnemonicParsing="false" onAction="#removeSkill" styleClass="buttons" stylesheets="@../../../Styles/app.css" text="Remove Skill" />
-   <Label fx:id="errorMessage" layoutX="609.0" layoutY="60.0" text="Press again to remove" textFill="RED" visible="false" />
+   <Label fx:id="errorMessage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="403.0" layoutY="60.0" prefHeight="17.0" prefWidth="324.0" text="Press again to remove" textAlignment="RIGHT" textFill="RED" visible="false" />
 </AnchorPane>
