@@ -9,14 +9,14 @@ public abstract class Persons {
     public static Person loged;
     public static List<Person> data = new ArrayList<>();
     public static void saveData() throws IOException {
-        FileOutputStream fos = new FileOutputStream("C:\\Users\\sergi\\IdeaProjects\\ItTalents\\src\\main\\java\\pt\\ipvc\\ittalents\\SavedData\\Persons.data");
+        FileOutputStream fos = new FileOutputStream(System.getProperty("user.dir") + "\\src\\main\\java\\pt\\ipvc\\ittalents\\SavedData\\Persons.data");
         ObjectOutputStream oos = new ObjectOutputStream(fos);
         oos.writeObject(data);
         oos.close();
     }
 
     public static void loadData() throws IOException, ClassNotFoundException {
-        FileInputStream fis = new FileInputStream("C:\\Users\\sergi\\IdeaProjects\\ItTalents\\src\\main\\java\\pt\\ipvc\\ittalents\\SavedData\\Persons.data");
+        FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\java\\pt\\ipvc\\ittalents\\SavedData\\Persons.data");
         ObjectInputStream ois = new ObjectInputStream(fis);
         data = (List<Person>) ois.readObject();
         ois.close();
