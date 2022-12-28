@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="83.0" prefWidth="727.0" styleClass="background-color" stylesheets="@../../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Admin.Components.UserItemController">
+   <Label fx:id="username" layoutX="14.0" layoutY="14.0" text="Username" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+   <Button layoutX="603.0" layoutY="34.0" mnemonicParsing="false" onAction="#removeUser" prefHeight="25.0" prefWidth="110.0" styleClass="buttons" text="Remove User" />
+   <Label fx:id="info" layoutX="14.0" layoutY="46.0" text="User Info" textFill="WHITE" />
+   <Label fx:id="error" layoutX="503.0" layoutY="60.0" text="Error" textFill="RED" visible="false" />
+   <Separator layoutX="12.0" layoutY="76.0" prefHeight="7.0" prefWidth="711.0" />
+</AnchorPane>
