@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchor" prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Admin.ManageSkillsController">
+   <Label layoutX="31.0" layoutY="23.0" text="Manage Skills" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <ScrollPane layoutX="35.0" layoutY="123.0" prefHeight="408.0" prefWidth="731.0" styleClass="background-color">
+      <VBox fx:id="vbox" onMouseEntered="#updateList" prefHeight="406.0" prefWidth="729.0" styleClass="background-color" />
+   </ScrollPane>
+   <Button layoutX="668.0" layoutY="551.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="94.0" styleClass="buttons" text="Return" />
+   <Button layoutX="215.0" layoutY="23.0" mnemonicParsing="false" onAction="#addSkill" prefHeight="35.0" prefWidth="94.0" styleClass="buttons" text="Add Skill" />
+</AnchorPane>
