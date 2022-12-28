@@ -22,23 +22,36 @@ public class RegisterController{
     public Label infoLabel;
     public ComboBox<String> itAreaSelector;
     public ComboBox<String> personType;
+    public Label registerLabel;
 
     public void initialize() {
         try {
             Persons.loadData();
-            boolean exit = false;
-            for(Person p : Persons.data)
-                if(p.getUsername().equals("admin")) {
-                    exit = true;
-                    break;
-                }
-            if(!exit){
-                Person p = new Person("admin", "admin", PersonType.ADMIN);
-                Persons.data.add(p);
-                Persons.saveData();
-            }
         }catch (IOException | ClassNotFoundException e){
             System.out.println(e.getMessage());
+        }
+        //Verifica se existe admin
+        boolean exit = false;
+        for(Person p : Persons.data)
+            if(p.getUsername().equals("admin")) {
+                exit = true;
+                break;
+            }
+        if(!exit){
+            Person p = new Person("admin", "admin", PersonType.ADMIN);
+            Persons.data.add(p);
+            try{
+                Persons.saveData();
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
+        }
+        //register de users / admins
+        if(Persons.loged != null){
+            registerLabel.setVisible(false);
+            goToLoginBtn.setVisible(false);
+            if(Persons.loged.getPersonType().equals(PersonType.ADMIN))
+                personType.getItems().add("ADMIN");
         }
     }
     public void goToLogin(){
@@ -57,13 +70,12 @@ public class RegisterController{
     }
     private void registerUser() throws RegisterException {
         this.validator();
-        Person person = null;
+        Person person;
         if (personType.getValue().equals("PROFESSIONAL"))
             person = new Professional(username.getText(), password.getText(), PersonType.valueOf(personType.getValue()), AreaType.valueOf(itAreaSelector.getValue()));
-        else if (personType.getValue().equals("CLIENT"))
+        else
             person = new Person(username.getText(), password.getText(), PersonType.valueOf(personType.getValue()));
         Persons.data.add(person);
-        Persons.loged = person;
         try{
             Persons.saveData();
         }catch (IOException e){
