@@ -19,7 +19,7 @@ public class Skill implements Serializable {
      * @param areaType Skill category in ITArea
      */
     public Skill(String name, String description, AreaType areaType) {
-        this.id = Skills.data.size() + 1;
+        this.id = ++Skills.index;
         this.name = name;
         this.description = description;
         this.areaType = areaType;
