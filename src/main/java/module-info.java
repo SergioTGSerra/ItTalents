@@ -10,7 +10,6 @@ module pt.ipvc.ittalents {
     exports pt.ipvc.ittalents.Backend.Controllers.Admin;
     exports pt.ipvc.ittalents.Backend.Controllers.Admin.Components;
     exports pt.ipvc.ittalents.Backend.Controllers.Client;
-    exports pt.ipvc.ittalents.Backend.Controllers;
     exports pt.ipvc.ittalents.Models;
     exports pt.ipvc.ittalents.Routes;
     exports pt.ipvc.ittalents.Backend.Controllers.Auth;
