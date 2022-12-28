@@ -19,7 +19,7 @@ public class Person implements Serializable {
      * @param password  Set password of person
      */
     public Person(String username, String password, PersonType personType) {
-        this.id = Persons.data.size() + 1;
+        this.id = ++Persons.index;
         this.username = username;
         this.password = password;
         this.personType = personType;
