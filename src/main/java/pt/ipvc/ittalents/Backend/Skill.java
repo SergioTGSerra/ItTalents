@@ -49,4 +49,16 @@ public class Skill implements Serializable {
     public void setPublished(boolean published) {
         this.published = published;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setAreaType(AreaType areaType) {
+        this.areaType = areaType;
+    }
 }
