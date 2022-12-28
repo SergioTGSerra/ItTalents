@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="440.0" prefWidth="333.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Admin.AddSkillController">
+   <Label layoutX="27.0" layoutY="14.0" text="Add Skill" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="36.0" />
+      </font>
+   </Label>
+   <Label layoutX="29.0" layoutY="71.0" text="Skill Name:*" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <TextField fx:id="skillDescription" layoutX="31.0" layoutY="173.0" prefHeight="41.0" prefWidth="279.0" promptText="Skill Description" />
+   <Label layoutX="31.0" layoutY="147.0" text="Description" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Button layoutX="29.0" layoutY="371.0" mnemonicParsing="false" onAction="#addSkillBtn" prefHeight="35.0" prefWidth="279.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Add Skill">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Button>
+   <Label fx:id="errorMessage" layoutX="33.0" layoutY="413.0" prefHeight="13.0" prefWidth="267.0" text="Message" textFill="RED" visible="false" />
+   <TextField fx:id="skillName" layoutX="29.0" layoutY="98.0" prefHeight="41.0" prefWidth="279.0" promptText="SkillName" />
+   <Label layoutX="32.0" layoutY="305.0" text="Public Skill:" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <ToggleButton fx:id="publicSkillBtn" layoutX="104.0" layoutY="303.0" mnemonicParsing="false" onAction="#publicSkillSwicth" prefHeight="17.0" prefWidth="69.0" style="-fx-background-color: red;" text="No" />
+   <ComboBox fx:id="itArea" layoutX="31.0" layoutY="245.0" prefHeight="41.0" prefWidth="279.0" promptText="IT Area" />
+   <Label layoutX="31.0" layoutY="220.0" text="IT Area" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+</AnchorPane>
