@@ -30,6 +30,7 @@ public class DashboardController {
     }
 
     public void goToFindTalents() {
+        ViewFactory.closeStage((Stage) usernameLabel.getScene().getWindow());
         GenericRoutes.showSearchTalents();
     }
 
