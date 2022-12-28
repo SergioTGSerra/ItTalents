@@ -43,7 +43,7 @@ public class RegisterController{
             try{
                 Persons.saveData();
             }catch (IOException e){
-                System.out.println(e.getMessage());
+                System.out.println(e.getMessage() + "Register Controller Save Data");
             }
         }
         //register de users / admins
