@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="440.0" prefWidth="251.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Admin.EditSkillController">
+   <Label layoutX="26.0" layoutY="20.0" text="Add Skill" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="36.0" />
+      </font>
+   </Label>
+   <ComboBox fx:id="searchSkill" editable="true" layoutX="29.0" layoutY="143.0" prefHeight="41.0" prefWidth="279.0" promptText="Skill Name" />
+   <Label layoutX="29.0" layoutY="115.0" text="Skill Name:*" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <TextField fx:id="yearsExprience" layoutX="31.0" layoutY="249.0" prefHeight="41.0" prefWidth="279.0" promptText="Years Of Exprience" />
+   <Label layoutX="31.0" layoutY="220.0" text="Years of exprience:*" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+   <Button layoutX="26.0" layoutY="356.0" mnemonicParsing="false" onAction="#addSkillBtn" prefHeight="35.0" prefWidth="279.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Add Skill">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Button>
+   <Label fx:id="errorMessage" layoutX="31.0" layoutY="320.0" prefHeight="17.0" prefWidth="305.0" text="Message" textFill="RED" visible="false" />
+</AnchorPane>
