@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchor" prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Admin.ManageUsersController">
+   <Label layoutX="31.0" layoutY="23.0" text="Manage Users" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="24.0" />
+      </font>
+   </Label>
+   <ScrollPane layoutX="31.0" layoutY="89.0" prefHeight="442.0" prefWidth="731.0" styleClass="background-color">
+      <VBox fx:id="vbox" onMouseEntered="#updateList" prefHeight="440.0" prefWidth="729.0" styleClass="background-color" />
+   </ScrollPane>
+   <Button layoutX="668.0" layoutY="551.0" mnemonicParsing="false" onAction="#goBack" prefHeight="35.0" prefWidth="94.0" styleClass="buttons" text="Return" />
+   <Button layoutX="215.0" layoutY="23.0" mnemonicParsing="false" onAction="#addUser" prefHeight="35.0" prefWidth="94.0" styleClass="buttons" text="Add Person" />
+</AnchorPane>
