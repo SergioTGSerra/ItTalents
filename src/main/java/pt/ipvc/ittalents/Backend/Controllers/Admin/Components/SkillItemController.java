@@ -2,11 +2,13 @@ package pt.ipvc.ittalents.Backend.Controllers.Admin.Components;
 
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import pt.ipvc.ittalents.Backend.Controllers.Admin.EditSkillController;
 import pt.ipvc.ittalents.Backend.Person;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
+import pt.ipvc.ittalents.Routes.AdminRoutes;
 
 public class SkillItemController {
     public Label error;
@@ -26,7 +28,7 @@ public class SkillItemController {
         if(s.getDescription()==null)
             info.setText("Area: "+ s.getAreaType().toString() + ", Published: " + s.isPublished() + ", Associated with " + nAssPerson + " professionals");
         else
-            info.setText("Skill Name: " + s.getDescription() + ", Area: "+ s.getAreaType().toString() + ", Published: " + s.isPublished() + ", Associated with " + nAssPerson + " professionals" );
+            info.setText("Description: " + s.getDescription() + ", Area: "+ s.getAreaType().toString() + ", Published: " + s.isPublished() + ", Associated with " + nAssPerson + " professionals" );
     }
 
     public void removeSkill() {
@@ -49,5 +51,7 @@ public class SkillItemController {
     }
 
     public void goToManageSkill() {
+        EditSkillController.selectedSkill = skill;
+        AdminRoutes.showEditSkill();
     }
 }
