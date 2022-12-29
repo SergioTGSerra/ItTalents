@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="122.0" prefWidth="483.0" styleClass="background-color" stylesheets="@../../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Generic.Components.ProfessionalItemController">
+   <Label fx:id="name" layoutX="14.0" layoutY="14.0" text="Name" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+   <Button layoutX="361.0" layoutY="52.0" mnemonicParsing="false" onAction="#makeOffer" prefHeight="25.0" prefWidth="110.0" styleClass="buttons" text="Make offer" />
+   <Label fx:id="skills" layoutX="14.0" layoutY="62.0" text="Skills:" textFill="WHITE" />
+   <Separator layoutX="12.0" layoutY="110.0" prefHeight="8.0" prefWidth="463.0" />
+   <Label fx:id="itArea" layoutX="14.0" layoutY="43.0" text="IT Area:" textFill="WHITE" />
+   <Label fx:id="country" layoutX="14.0" layoutY="82.0" text="Country:" textFill="WHITE" />
+   <Label fx:id="price" layoutX="262.0" layoutY="54.0" text="Price:" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+</AnchorPane>
