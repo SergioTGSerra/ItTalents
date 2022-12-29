@@ -5,13 +5,17 @@
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Generic.SearchTalents">
-   <Button layoutX="681.0" layoutY="530.0" mnemonicParsing="false" onAction="#goBack" prefHeight="39.0" prefWidth="88.0" styleClass="buttons" text="Return" />
+   <Button layoutX="689.0" layoutY="547.0" mnemonicParsing="false" onAction="#goBack" prefHeight="39.0" prefWidth="89.0" styleClass="buttons" text="Return" />
    <Label layoutX="14.0" layoutY="14.0" text="Search for Talents" textFill="WHITE">
       <font>
          <Font name="System Bold" size="24.0" />
       </font>
    </Label>
    <Separator layoutX="262.0" layoutY="68.0" orientation="VERTICAL" prefHeight="511.0" prefWidth="0.0" />
-   <ListView fx:id="skills" editable="true" layoutX="25.0" layoutY="69.0" prefHeight="471.0" prefWidth="200.0" styleClass="background-color" />
-   <Button layoutX="40.0" layoutY="540.0" mnemonicParsing="false" onAction="#update" prefHeight="39.0" prefWidth="185.0" styleClass="buttons" text="Find Talents" />
+   <ListView fx:id="skills" editable="true" layoutX="25.0" layoutY="112.0" prefHeight="428.0" prefWidth="200.0" styleClass="background-color" />
+   <Button layoutX="40.0" layoutY="540.0" mnemonicParsing="false" onAction="#findTalents" prefHeight="39.0" prefWidth="185.0" styleClass="buttons" text="Find Talents" />
+   <ComboBox fx:id="itArea" layoutX="25.0" layoutY="68.0" onAction="#updateSkills" prefHeight="35.0" prefWidth="217.0" promptText="IT Area" />
+   <ScrollPane layoutX="283.0" layoutY="68.0" prefHeight="464.0" prefWidth="494.0" styleClass="background-color">
+      <VBox fx:id="listPersons" prefHeight="462.0" prefWidth="492.0" styleClass="background-color" />
+   </ScrollPane>
 </AnchorPane>
