@@ -1,5 +1,6 @@
 package pt.ipvc.ittalents.Backend.Controllers.Professional;
 
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -7,14 +8,16 @@ import javafx.scene.paint.Color;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Models.Persons;
 
+import java.util.Locale;
+
 public class MySettingsController {
     public ToggleButton publicProfileBtn;
     public TextField name;
     public TextField email;
-    public TextField country;
     public TextField priceHour;
     public Label priceHourLabel;
     public Label errorMessage;
+    public ComboBox<String> country;
 
     public void initialize() {
         updateAreas();
@@ -36,7 +39,12 @@ public class MySettingsController {
     private void updateAreas(){
         name.setText(Persons.loged.getName());
         email.setText(Persons.loged.getEmail());
-        country.setText(Persons.loged.getCountry());
+
+        String[] locales1 = Locale.getISOCountries();
+        for (String countrylist : locales1)
+            country.getItems().add(countrylist);
+        country.setValue(Persons.loged.getCountry());
+
         priceHour.setText(String.valueOf(((Professional)Persons.loged).getPriceHour()));
         if(((Professional)Persons.loged).isPublished()){
             publicProfileBtn.setStyle("-fx-background-color: green");
@@ -49,7 +57,7 @@ public class MySettingsController {
     public void saveData() {
         Persons.loged.setName(name.getText());
         Persons.loged.setEmail(email.getText());
-        Persons.loged.setCountry(country.getText());
+        Persons.loged.setCountry(country.getValue());
         ((Professional)Persons.loged).setPublished(!((Professional)Persons.loged).isPublished());
         try {
             ((Professional)Persons.loged).setPriceHour(Double.parseDouble(priceHour.getText()));
