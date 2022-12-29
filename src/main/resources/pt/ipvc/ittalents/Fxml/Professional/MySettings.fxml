@@ -12,8 +12,8 @@
    <TextField fx:id="email" layoutX="18.0" layoutY="85.0" />
    <Button layoutX="20.0" layoutY="347.0" mnemonicParsing="false" onAction="#saveData" prefHeight="39.0" prefWidth="212.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Save" />
    <Label layoutX="19.0" layoutY="126.0" text="Country" textFill="WHITE" />
-   <TextField fx:id="country" layoutX="18.0" layoutY="143.0" />
    <Label fx:id="priceHourLabel" layoutX="19.0" layoutY="263.0" text="Price Hour" textFill="WHITE" visible="false" />
    <TextField fx:id="priceHour" layoutX="18.0" layoutY="280.0" visible="false" />
    <Label fx:id="errorMessage" layoutX="22.0" layoutY="324.0" text="Error Message" textFill="RED" visible="false" />
+   <ComboBox fx:id="country" layoutX="18.0" layoutY="143.0" prefWidth="150.0" />
 </AnchorPane>
