@@ -29,7 +29,7 @@
          <Font size="24.0" />
       </font></Label>
    <Button layoutX="30.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToMySettings" prefHeight="39.0" prefWidth="94.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="My Settings" />
-   <Button layoutX="283.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToAddExprience" prefHeight="39.0" prefWidth="101.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Add Exprience" />
+   <Button layoutX="283.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToAddExprience" prefHeight="39.0" prefWidth="101.0" styleClass="buttons" stylesheets="@../../Styles/app.css" text="Add Experience" />
    <ScrollPane hbarPolicy="NEVER" layoutX="30.0" layoutY="186.0" prefHeight="394.0" prefWidth="746.0" styleClass="background-color">
       <content>
          <VBox fx:id="skillsLayout" onMouseEntered="#updateList" prefHeight="392.0" prefWidth="744.0" styleClass="background-color" />
