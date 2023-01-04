@@ -36,16 +36,13 @@ public class ManageUsersController {
             }
         }
     }
-
     public void goBack() {
         ViewFactory.closeStage((Stage) anchor.getScene().getWindow());
         AdminRoutes.showDashboard();
     }
-
     public void addUser() {
         AuthRoutes.showRegister();
     }
-
     public void updateList() {
         vbox.getChildren().removeAll(vbox.getChildren());
         updater();

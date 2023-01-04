@@ -19,7 +19,6 @@ public class ManageSkillsController {
     public void initialize(){
         updater();
     }
-
     public void updater(){
         for (Skill s : Skills.data){
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -34,17 +33,14 @@ public class ManageSkillsController {
             }
         }
     }
-
     public void updateList() {
         vbox.getChildren().removeAll(vbox.getChildren());
         updater();
     }
-
     public void goBack() {
         ViewFactory.closeStage((Stage) anchor.getScene().getWindow());
         AdminRoutes.showDashboard();
     }
-
     public void addSkill() {
         AdminRoutes.showAddSkill();
     }
