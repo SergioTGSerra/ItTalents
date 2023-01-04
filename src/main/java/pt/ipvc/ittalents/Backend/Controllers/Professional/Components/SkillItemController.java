@@ -3,8 +3,8 @@ package pt.ipvc.ittalents.Backend.Controllers.Professional.Components;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import pt.ipvc.ittalents.Backend.Controllers.Professional.ViewExpriencesController;
-import pt.ipvc.ittalents.Backend.Exprience;
+import pt.ipvc.ittalents.Backend.Controllers.Professional.ViewExperiencesController;
+import pt.ipvc.ittalents.Backend.Experience;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
@@ -30,17 +30,15 @@ public class SkillItemController{
                 break;
             }
     }
-
     public void removeSkill() {
         cont++;
-        for(Exprience e : ((Professional)Persons.loged).getExpriences())
+        for(Experience e : ((Professional)Persons.loged).getExpriences())
             if(e.getIdSkill() == idSkill){
                 errorMessage.setVisible(true);
                 errorMessage.setTextFill(Color.color(1, 0, 0));
                 errorMessage.setText("There are experiences associated with this skill!");
                 return;
             }
-
         if(cont == 1){
             errorMessage.setVisible(true);
             errorMessage.setTextFill(Color.color(1, 0, 0));
@@ -53,10 +51,9 @@ public class SkillItemController{
             errorMessage.setText("Skill removed successfully!");
         }
     }
-
     public void viewExpriences() {
         ViewFactory.closeStage((Stage) skillName.getScene().getWindow());
-        ViewExpriencesController.skillId = idSkill;
-        ProfessionalRoutes.showViewExpriences();
+        ViewExperiencesController.skillId = idSkill;
+        ProfessionalRoutes.showViewExperiences();
     }
 }

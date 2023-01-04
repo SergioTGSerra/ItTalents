@@ -26,7 +26,6 @@ public class EditSkillController {
         itArea.getItems().add(AreaType.PROJECTMANAGER);
         setData();
     }
-
     public void setData(){
         skillName.setText(selectedSkill.getName());
         skillDescription.setText(selectedSkill.getDescription());
@@ -39,7 +38,6 @@ public class EditSkillController {
             publicSkillBtn.setStyle("-fx-background-color: red");
         }
     }
-
     public void addSkillBtn() {
         String sName = skillName.getText().substring(0,1).toUpperCase() + skillName.getText().substring(1).toLowerCase();
 

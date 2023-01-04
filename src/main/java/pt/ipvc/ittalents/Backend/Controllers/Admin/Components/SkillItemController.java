@@ -30,7 +30,6 @@ public class SkillItemController {
         else
             info.setText("Description: " + s.getDescription() + ", Area: "+ s.getAreaType().toString() + ", Published: " + s.isPublished() + ", Associated with " + nAssPerson + " professionals" );
     }
-
     public void removeSkill() {
         cont++;
         if(nAssPerson != 0){
@@ -49,7 +48,6 @@ public class SkillItemController {
             error.setText("Skill removed successfully!");
         }
     }
-
     public void goToManageSkill() {
         EditSkillController.selectedSkill = skill;
         AdminRoutes.showEditSkill();
