@@ -10,7 +10,7 @@ public class Professional extends Person {
     private double priceHour;
     private boolean published;
     private final Map<Integer, Integer> skills = new HashMap<>(); //ID Skill to Year Of exprience
-    private final List<Exprience> expriences = new ArrayList<>(); //exprience to id of Skill
+    private final List<Experience> expriences = new ArrayList<>(); //exprience to id of Skill
 
     public Professional(String username, String password, PersonType personType, AreaType iTArea) {
         super(username, password, personType);
@@ -37,10 +37,10 @@ public class Professional extends Person {
     public Map<Integer, Integer> getSkills() {
         return skills;
     }
-    public void addExprience(Exprience exprience){
+    public void addExprience(Experience exprience){
         expriences.add(exprience);
     }
-    public List<Exprience> getExpriences() {
+    public List<Experience> getExpriences() {
         return expriences;
     }
 }
