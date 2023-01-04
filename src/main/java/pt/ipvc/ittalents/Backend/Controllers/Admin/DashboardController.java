@@ -27,18 +27,15 @@ public class DashboardController {
         nUsers.setText("Number of Users: " + Persons.data.size());
         nSkills.setText("Number of Skills: " + Skills.data.size());
     }
-
     public void manageSkills() {
         ViewFactory.closeStage((Stage) usernameLabel.getScene().getWindow());
         AdminRoutes.showManageSkills();
     }
-
     public void logout() {
         ViewFactory.closeStage((Stage)usernameLabel.getScene().getWindow());
         Persons.loged = null;
         AuthRoutes.showLogin();
     }
-
     public void goToManageUsers() {
         ViewFactory.closeStage((Stage) usernameLabel.getScene().getWindow());
         AdminRoutes.showManageUsers();
