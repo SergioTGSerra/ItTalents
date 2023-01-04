@@ -1,9 +1,11 @@
-package pt.ipvc.ittalents.Backend.Controllers.Generic.Components;
+package pt.ipvc.ittalents.Backend.Controllers.Client.Components;
 
 import javafx.scene.control.Label;
+import pt.ipvc.ittalents.Backend.Controllers.Client.MakeOfferController;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Skills;
+import pt.ipvc.ittalents.Routes.ClientRoutes;
 
 public class ProfessionalItemController {
     public Label name;
@@ -24,14 +26,14 @@ public class ProfessionalItemController {
             sb.append(getSkillName(i)).append(", ");
         skills.setText("Skills: " + sb);
     }
-
     private String getSkillName(int skillId){
         for(Skill s : Skills.data)
             if(s.getId() == skillId)
                 return s.getName();
         return null;
     }
-
     public void makeOffer() {
+        MakeOfferController.professional = p;
+        ClientRoutes.ShowMakeOffer();
     }
 }
