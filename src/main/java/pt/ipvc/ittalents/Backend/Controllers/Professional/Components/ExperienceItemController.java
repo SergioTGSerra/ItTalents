@@ -2,18 +2,18 @@ package pt.ipvc.ittalents.Backend.Controllers.Professional.Components;
 
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
-import pt.ipvc.ittalents.Backend.Exprience;
+import pt.ipvc.ittalents.Backend.Experience;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Models.Persons;
 
-public class ExprienceItemController {
+public class ExperienceItemController {
     public Label companyName;
     public Label startDate;
     public Label endDate;
     public Label errorMessage;
-    private Exprience exprience;
+    private Experience exprience;
     private int cont;
-    public void setData(Exprience e){
+    public void setData(Experience e){
         this.exprience = e;
         companyName.setText(e.getCompany());
         startDate.setText(e.getStartDate().toString());

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.ViewExpriencesController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.ViewExperiencesController">
    <Label fx:id="title" layoutX="14.0" layoutY="22.0" text="X's Experiences for Skill X" textFill="WHITE">
       <font>
          <Font name="System Bold" size="24.0" />

@@ -4,8 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.AddExprienceController">
-   <Label layoutX="26.0" layoutY="20.0" text="Add Exprience" textFill="WHITE">
+<AnchorPane fx:id="anchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.AddExperienceController">
+   <Label layoutX="26.0" layoutY="20.0" text="Add Experience" textFill="WHITE">
       <font>
          <Font name="System Bold" size="36.0" />
       </font>

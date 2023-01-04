@@ -6,8 +6,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import pt.ipvc.ittalents.Backend.Controllers.Professional.Components.ExprienceItemController;
-import pt.ipvc.ittalents.Backend.Exprience;
+import pt.ipvc.ittalents.Backend.Controllers.Professional.Components.ExperienceItemController;
+import pt.ipvc.ittalents.Backend.Experience;
 import pt.ipvc.ittalents.Backend.Professional;
 import pt.ipvc.ittalents.Backend.Skill;
 import pt.ipvc.ittalents.Models.Persons;
@@ -17,7 +17,7 @@ import pt.ipvc.ittalents.Routes.ViewFactory;
 
 import java.io.IOException;
 
-public class ViewExpriencesController {
+public class ViewExperiencesController {
     public VBox vbox;
     public Label title;
     public static int skillId;
@@ -37,13 +37,13 @@ public class ViewExpriencesController {
         ProfessionalRoutes.showDashboard();
     }
     private void updateList() {
-        for (Exprience exp : ((Professional) Persons.loged).getExpriences()){
+        for (Experience exp : ((Professional) Persons.loged).getExpriences()){
             if(exp.getIdSkill() == skillId){
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/pt/ipvc/ittalents/Fxml/Professional/Components/ExprienceItem.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/pt/ipvc/ittalents/Fxml/Professional/Components/ExperienceItem.fxml"));
                 try {
                     AnchorPane pane = fxmlLoader.load();
-                    ExprienceItemController eic = fxmlLoader.getController();
+                    ExperienceItemController eic = fxmlLoader.getController();
                     eic.setData(exp);
                     vbox.getChildren().add(pane);
                 }catch (IOException e){
