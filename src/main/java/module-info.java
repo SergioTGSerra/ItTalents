@@ -14,6 +14,5 @@ module pt.ipvc.ittalents {
     exports pt.ipvc.ittalents.Routes;
     exports pt.ipvc.ittalents.Backend.Controllers.Auth;
     exports pt.ipvc.ittalents.Backend.Controllers.Professional.Components;
-    exports pt.ipvc.ittalents.Backend.Controllers.Generic;
-    exports pt.ipvc.ittalents.Backend.Controllers.Generic.Components;
+    exports pt.ipvc.ittalents.Backend.Controllers.Client.Components;
 }
