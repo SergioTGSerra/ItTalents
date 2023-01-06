@@ -1,5 +1,6 @@
 package pt.ipvc.ittalents.Backend.Controllers.Professional;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -64,5 +65,13 @@ public class DashboardController {
                 e.printStackTrace();
             }
         }
+    }
+    public void goToOffers() {
+        ViewFactory.closeStage((Stage)anchorPane.getScene().getWindow());
+        ProfessionalRoutes.showViewOffers();
+    }
+
+    public void registerUser() {
+        AuthRoutes.showRegister();
     }
 }

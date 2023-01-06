@@ -40,4 +40,9 @@ public class DashboardController {
         ViewFactory.closeStage((Stage) usernameLabel.getScene().getWindow());
         AdminRoutes.showManageUsers();
     }
+
+    public void goToReports() {
+        ViewFactory.closeStage((Stage) usernameLabel.getScene().getWindow());
+        AdminRoutes.showReports();
+    }
 }

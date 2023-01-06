@@ -4,27 +4,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Client.MakeOfferController">
-   <Label fx:id="label" layoutX="22.0" layoutY="23.0" text="Make a Offer to X" textFill="WHITE">
+<AnchorPane fx:id="makeOffer" prefHeight="485.0" prefWidth="629.0" styleClass="background-color" stylesheets="@../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Client.MakeOfferController">
+   <Label fx:id="title" layoutX="22.0" layoutY="23.0" text="Make a Offer to X" textFill="WHITE">
       <font>
          <Font name="System Bold" size="24.0" />
       </font>
    </Label>
-   <TextArea layoutX="51.0" layoutY="130.0" prefHeight="291.0" prefWidth="698.0" styleClass="background-color" stylesheets="@../../Styles/app.css" />
-   <TextField layoutX="51.0" layoutY="506.0" prefHeight="35.0" prefWidth="187.0" />
-   <Label layoutX="51.0" layoutY="101.0" text="Description" textFill="WHITE">
+   <TextArea fx:id="description" layoutX="51.0" layoutY="119.0" prefHeight="194.0" prefWidth="529.0" styleClass="background-color" stylesheets="@../../Styles/app.css" />
+   <TextField fx:id="price" layoutX="51.0" layoutY="365.0" prefHeight="35.0" prefWidth="187.0" promptText="Price" />
+   <Label layoutX="51.0" layoutY="90.0" text="Description" textFill="WHITE">
       <font>
          <Font size="14.0" />
       </font>
    </Label>
-   <Label layoutX="51.0" layoutY="479.0" text="Price to pay:" textFill="WHITE">
+   <Label layoutX="51.0" layoutY="338.0" text="Price to pay:" textFill="WHITE">
       <font>
          <Font size="14.0" />
       </font>
    </Label>
-   <Button layoutX="656.0" layoutY="506.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" styleClass="buttons" text="Make Offer">
+   <Button layoutX="456.0" layoutY="422.0" mnemonicParsing="false" onAction="#makeOffer" prefHeight="35.0" prefWidth="124.0" styleClass="buttons" text="Make Offer">
       <font>
          <Font size="14.0" />
       </font>
    </Button>
+   <Label fx:id="error" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="255.0" layoutY="430.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="20.0" prefWidth="187.0" text="error" textFill="RED" visible="false" />
+   <TextField fx:id="requiredHours" layoutX="392.0" layoutY="362.0" prefHeight="35.0" prefWidth="187.0" promptText="Required Hours" />
+   <Label layoutX="392.0" layoutY="335.0" text="Required Hours:" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
 </AnchorPane>

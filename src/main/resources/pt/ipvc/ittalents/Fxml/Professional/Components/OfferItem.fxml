@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="89.0" prefWidth="738.0" styleClass="background-color" stylesheets="@../../../Styles/app.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pt.ipvc.ittalents.Backend.Controllers.Professional.Components.OfferItemController">
+   <Separator layoutX="4.0" layoutY="81.0" prefHeight="8.0" prefWidth="729.0" />
+   <Button fx:id="b1" layoutX="513.0" layoutY="32.0" mnemonicParsing="false" onAction="#removeOffer" prefHeight="25.0" prefWidth="90.0" styleClass="buttons" stylesheets="@../../../Styles/app.css" text="Decline Offer" />
+   <Label fx:id="errorMessage" layoutX="581.0" layoutY="60.0" text="Press again to remove" textFill="RED" visible="false" />
+   <Label fx:id="description" alignment="TOP_LEFT" layoutX="14.0" layoutY="19.0" prefHeight="57.0" prefWidth="355.0" text="Description:" textFill="WHITE">
+      <font>
+         <Font size="18.0" />
+      </font></Label>
+   <Label fx:id="price" layoutX="397.0" layoutY="19.0" text="Price:" textFill="WHITE">
+      <font>
+         <Font size="18.0" />
+      </font></Label>
+   <Button fx:id="b2" layoutX="618.0" layoutY="32.0" mnemonicParsing="false" onAction="#acceptOffer" styleClass="buttons" stylesheets="@../../../Styles/app.css" text="Accept offer" />
+   <Label fx:id="acceptedLabel" layoutX="596.0" layoutY="36.0" text="Offer accepted" textFill="#0dff00" visible="false" />
+   <Label fx:id="hours" layoutX="397.0" layoutY="47.0" text="Hours:" textFill="WHITE">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+</AnchorPane>

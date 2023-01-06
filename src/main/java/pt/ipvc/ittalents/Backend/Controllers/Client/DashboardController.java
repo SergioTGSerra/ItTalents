@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import pt.ipvc.ittalents.Backend.*;
 import pt.ipvc.ittalents.Backend.Controllers.Client.Components.ProfessionalItemController;
+import pt.ipvc.ittalents.Models.Offers;
 import pt.ipvc.ittalents.Models.Persons;
 import pt.ipvc.ittalents.Models.Skills;
 import pt.ipvc.ittalents.Routes.*;
@@ -23,6 +24,7 @@ public class DashboardController {
     public void initialize(){
         try{
             Skills.loadData();
+            Offers.loadData();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }

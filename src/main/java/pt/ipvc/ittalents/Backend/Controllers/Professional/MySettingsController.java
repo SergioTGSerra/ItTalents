@@ -67,7 +67,7 @@ public class MySettingsController {
         }catch (NumberFormatException e) {
             errorMessage.setVisible(true);
             errorMessage.setTextFill(Color.color(1, 0, 0));
-            errorMessage.setText("The hour ly price must be a number.");
+            errorMessage.setText("The hour ly price must be a double number.");
         }
         updateAreas();
         Persons.updatePersons();

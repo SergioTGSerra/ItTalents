@@ -1,15 +1,24 @@
 package pt.ipvc.ittalents.Backend;
 
-public class Offer {
+import pt.ipvc.ittalents.Models.Offers;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
+
+public class Offer implements Serializable {
     private int id;
     private String text;
     private double price;
+    private int requiredHours;
+    private LocalDate dateAccepted;
     private boolean acepted = false;
 
-    public Offer(int id, String text, double price) {
-        this.id = id;
+    public Offer(String text, double price, int requiredHours) {
+        this.id = ++Offers.index;;
         this.text = text;
         this.price = price;
+        this.requiredHours = requiredHours;
     }
 
     public int getId() {
@@ -42,5 +51,17 @@ public class Offer {
 
     public void setAcepted(boolean acepted) {
         this.acepted = acepted;
+    }
+
+    public LocalDate getDateAccepted() {
+        return dateAccepted;
+    }
+
+    public void setDateAccepted(LocalDate dateAccepted) {
+        this.dateAccepted = dateAccepted;
+    }
+
+    public int getRequiredHours() {
+        return requiredHours;
     }
 }

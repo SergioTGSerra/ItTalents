@@ -11,9 +11,12 @@ public abstract class ProfessionalRoutes extends ViewFactory {
         createStage("Professional/AddSkill");
     }
     public static void showAddExprience() {
-        createStage("Professional/AddExprience");
+        createStage("Professional/AddExperience");
     }
     public static void showViewExperiences() {
         createStage("Professional/ViewExperiences");
+    }
+    public static void showViewOffers() {
+        createStage("Professional/ViewOffers");
     }
 }

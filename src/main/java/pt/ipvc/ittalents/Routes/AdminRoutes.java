@@ -16,4 +16,7 @@ public abstract class AdminRoutes extends ViewFactory {
     public static void showEditSkill() {
         createStage("Admin/EditSkill");
     }
+    public static void showReports() {
+        createStage("Admin/Reports");
+    }
 }
